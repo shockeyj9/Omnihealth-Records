@@ -39,7 +39,7 @@ const employeeSchema = new Schema({
                     }
                 }
             ],
-            adresses: [
+            addresses: [
                 {
                     mailing: {
                         type: String,

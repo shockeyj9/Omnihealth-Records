@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const clientSchema = new Schema({
-  demographics: [
+  demographics: 
     {
         name : {
             type: String,
@@ -16,7 +16,7 @@ const clientSchema = new Schema({
             required: true,
         },
         gender: {
-            // input field 
+            type: String,
         },
         race: {
             type: String,
@@ -25,12 +25,12 @@ const clientSchema = new Schema({
             type: String,
         },
         occupation: {
-            // input field
+            type: String,
         },
         contactInfo: [
             {
                 phone: {
-                    type: Number,
+                    type: String,
                     // value
                 },
                 email: {
@@ -39,7 +39,7 @@ const clientSchema = new Schema({
                 }
             }
         ],
-        adresses: [
+        addresses: [
             {
                 mailing: {
                     type: String,
@@ -57,19 +57,19 @@ const clientSchema = new Schema({
             }
         ]
     }
-  ],
-  Insurance: [
+  ,
+  insurance: [
     {
-        payers: [
+        payer_id: 
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Payer'
             }
-        ],
+        ,
         priority :{
             type: String,
         },
-        subscriber: [
+        subscriber: 
             {
                 relationshipToPatient: {
                     type: String,
@@ -92,7 +92,7 @@ const clientSchema = new Schema({
                     },
                 }
             }
-        ],
+        ,
         beginDate: {
             type: Date,
             required: true,
