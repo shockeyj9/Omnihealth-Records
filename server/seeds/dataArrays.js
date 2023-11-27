@@ -26,6 +26,33 @@ const fullNames = [
     'Yara Carter'
   ];
 
+  const empNames = [
+    'John Smith',
+    'Emily Johnson',
+    'Michael Davis',
+    'Jessica Brown',
+    'Brian Wilson',
+    'Ashley Martin',
+    'Christopher Lee',
+    'Amanda Miller',
+    'David Jones',
+    'Sarah Taylor',
+    'Matthew Wilson',
+    'Olivia White',
+    'Daniel Davis',
+    'Sophia Moore',
+    'Christopher Smith',
+    'Emma Johnson',
+    'Joshua Brown',
+    'Grace Wilson',
+    'Tyler Martin',
+    'Isabella Lee',
+    'Andrew Miller',
+    'Madison Davis',
+    'Ryan Taylor',
+    'Abigail Wilson'
+  ];
+
   const sex = [
     'Male',
     'Female'
@@ -273,5 +300,6 @@ const fullNames = [
     relationshipTypes,
     payers,
     programs,
-    roles
+    roles,
+    empNames
   }

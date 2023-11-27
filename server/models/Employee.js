@@ -16,7 +16,7 @@ const employeeSchema = new Schema({
                 required: true,
             },
             gender: {
-                // input field 
+                type: String,
             },
             race: {
                 type: String,
@@ -25,20 +25,18 @@ const employeeSchema = new Schema({
                 type: String,
             },
             role: {
-                // input field
+                type: String,
             },
-            contactInfo: [
+            contactInfo: 
                 {
                     phone: {
-                        type: Number,
-                        // value
+                        type: String,
                     },
                     email: {
                         type: String,
-                        // value
                     }
                 }
-            ],
+            ,
             addresses: [
                 {
                     mailing: {
@@ -59,7 +57,8 @@ const employeeSchema = new Schema({
         }
     ],
     supervisors: {
-        // ["SELF-REFERENCE EMPLOYEE MODEL FOR SUPERVISOR ObjectIds"],
+        type: Schema.Types.ObjectId,
+        ref: 'Employee'
     },
     startDate: {
         type: Date,
