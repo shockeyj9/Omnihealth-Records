@@ -112,33 +112,21 @@ db.once('open',async ()=>{
   
   //Add insurance to client documents
 
-  let clients = await Client.find({})
-  clients.map(async(client)=>{
-    const payers = await Payer.find({})
-    const payer = getRandom(payers)
-    console.log(client._id)
-    await Client.findByIdAndUpdate(client._id, 
-      {
-        $addToSet: {
-          insurance:{
-            payer_id: payer._id,
-            priority: 'Primary',
-            subscriber: 
-              {
-                relationshipToPatient: await getRandom(relationshipTypes),
-                name: await getRandom(fullNames),
-                dateOfBirth:getRandomDate(new Date(1951, 0, 1), new Date()),
-                address: {
-                  mailing: await getRandom(addresses),
-                  physical: await getRandom(addresses)
-                }
-              },
-            beginDate: await getRandomDate(new Date(2000,0,1), new Date())
-          }
+    //Add insurance to client documents
+    const clients = await Client.find({}).lean().exec();
+    const payersArray = await Payer.find({}).lean().exec();
+    clients.map(async(client)=>{
+      const ranPayer = getRandom(payersArray)
+      console.log(client._id,ranPayer._id)
+      await Client.findByIdAndUpdate(
+        {_id: client._id}, 
+        { $addToSet: 
+            {insurance: {
+              payer_id: new ObjectId(ranPayer._id)
+            }}
         }
-      }
-      )
-  })
+        )
+    })
 
 
 
