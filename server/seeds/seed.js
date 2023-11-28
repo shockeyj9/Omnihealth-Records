@@ -84,6 +84,7 @@ db.once("open", async () => {
   );
   console.log("Programs Created!");
 
+  //Create Employees
   await Promise.all(
     empNames.map(async (item) => {
       await Employee.insertMany({
@@ -115,11 +116,13 @@ db.once("open", async () => {
   );
   console.log("Employees Created!");
 
-  //Add insurance to client documents  
+  //Add insurance and program to client documents  
   const clients = await Client.find({}).lean().exec();
   const payersArray = await Payer.find({}).lean().exec();
+  const programArray = await Program.find({}).lean().exec();
   const updatePromises = clients.map(async (client) => {
     const ranPayer = getRandom(payersArray);
+    const ranProgram = getRandom(programArray);
       await Client.findByIdAndUpdate(
         client._id,
         { $addToSet: { 
@@ -135,14 +138,18 @@ db.once("open", async () => {
                   physical: await getRandom(addresses)
                 }
               },
-              beginDate: await getRandomDate(new Date(2000, 0, 1), new Date()),
-              endDate: await getRandomDate(new Date(2000, 0, 1), new Date()),
-            } 
+              beginDate: await getRandomDate(new Date(2000, 0, 1), new Date())
+            },
+            programManagement: {
+              program_id: ranProgram._id,
+              beginDate: await getRandomDate(new Date(2000, 0, 1), new Date())
+            }
           } 
         }
       );
   });
   await Promise.all(updatePromises);
+  console.log("Client's insurance and programs added")
 
 
   process.exit(0);

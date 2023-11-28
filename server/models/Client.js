@@ -104,13 +104,11 @@ const clientSchema = new Schema({
   ],
   programManagement: [
     {
-        program_id:[
-            // default id? 
+        program_id:
             {
               type: Schema.Types.ObjectId,
               ref: 'Program',
             },
-          ],
         beginDate: {
             type: Date,
             required: true,
