@@ -60,7 +60,7 @@ const clientSchema = new Schema({
   ,
   insurance: [
     {
-        payer_id: 
+        payerId: 
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Payer'

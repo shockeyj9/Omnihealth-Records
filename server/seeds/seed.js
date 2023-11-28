@@ -1,10 +1,12 @@
-const db = require('../config/connection');
-const { Client,Payer,Employee,Program} = require('../models');
-const cleanDB = require('./cleanDB');
-const {getRandom,getRandomDate} = require('./helpers')
+const db = require("../config/connection");
+const { Client, Payer, Employee, Program } = require("../models");
+const cleanDB = require("./cleanDB");
+const { getRandom, getRandomDate } = require("./helpers");
+const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Types;
 
 //Bring in Arrays
-const {    
+const {
   fullNames,
   sex,
   genders,
@@ -18,20 +20,19 @@ const {
   payers,
   programs,
   roles,
-  empNames} = require('./dataArrays')
+  empNames,
+} = require("./dataArrays");
 
-
-
-db.once('open',async ()=>{
+db.once("open", async () => {
   //Clear if already exists
-  await cleanDB('Client', 'clients');
-  await cleanDB('Payer', 'payers');
-  await cleanDB('Employee', 'employees');
-  await cleanDB('Program', 'programs');
+  await cleanDB("Client", "clients");
+  await cleanDB("Payer", "payers");
+  await cleanDB("Employee", "employees");
+  await cleanDB("Program", "programs");
 
   //create clients
   await Promise.all(
-    fullNames.map(async (item)=>{
+    fullNames.map(async (item) => {
       await Client.insertMany({
         demographics: {
           name: item,
@@ -44,45 +45,47 @@ db.once('open',async ()=>{
           contactInfo: [
             {
               phone: await getRandom(phoneNumbers),
-              email:await getRandom(emails),
-            }
+              email: await getRandom(emails),
+            },
           ],
-          addresses: [{
-            mailing: await getRandom(addresses),
-            physical: await getRandom(addresses),
-            startDate: await getRandomDate(new Date(2000,0,1), new Date()),
-          }]
-        }
-      })
+          addresses: [
+            {
+              mailing: await getRandom(addresses),
+              physical: await getRandom(addresses),
+              startDate: await getRandomDate(new Date(2000, 0, 1), new Date()),
+            },
+          ],
+        },
+      });
     })
-    );
-    console.log('Clients Created!')
+  );
+  console.log("Clients Created!");
 
-    //create payers
+  //create payers
   await Promise.all(
-    payers.map(async (item)=>{
+    payers.map(async (item) => {
       await Payer.insertMany({
         name: item.name,
         electronic_id: item.payerId,
-        beginDate: item.beginDate
-      })
+        beginDate: item.beginDate,
+      });
     })
-    )
-    console.log('Payers Created!')
-  
+  );
+  console.log("Payers Created!");
+
   //create programs
   await Promise.all(
-    programs.map(async (item)=>{
+    programs.map(async (item) => {
       await Program.insertMany({
         name: item.name,
-        beginDate: item.beginDate
-      })
+        beginDate: item.beginDate,
+      });
     })
-  )
-  console.log('Programs Created!')
+  );
+  console.log("Programs Created!");
 
   await Promise.all(
-    empNames.map(async (item)=>{
+    empNames.map(async (item) => {
       await Employee.insertMany({
         demographics: {
           name: item,
@@ -95,40 +98,52 @@ db.once('open',async ()=>{
           contactInfo: [
             {
               phone: await getRandom(phoneNumbers),
-              email:await getRandom(emails),
-            }
+              email: await getRandom(emails),
+            },
           ],
-          addresses: [{
-            mailing: await getRandom(addresses),
-            physical: await getRandom(addresses),
-            startDate: await getRandomDate(new Date(2000,0,1), new Date()),
-          }]
+          addresses: [
+            {
+              mailing: await getRandom(addresses),
+              physical: await getRandom(addresses),
+              startDate: await getRandomDate(new Date(2000, 0, 1), new Date()),
+            },
+          ],
         },
-        startDate: await getRandomDate(new Date(2000,0,1), new Date())
-      })
+        startDate: await getRandomDate(new Date(2000, 0, 1), new Date()),
+      });
     })
-  )
-  console.log('Employees Created!')
-  
-  //Add insurance to client documents
+  );
+  console.log("Employees Created!");
 
-    //Add insurance to client documents
-    const clients = await Client.find({}).lean().exec();
-    const payersArray = await Payer.find({}).lean().exec();
-    clients.map(async(client)=>{
-      const ranPayer = getRandom(payersArray)
-      console.log(client._id,ranPayer._id)
+  //Add insurance to client documents  
+  const clients = await Client.find({}).lean().exec();
+  const payersArray = await Payer.find({}).lean().exec();
+  const updatePromises = clients.map(async (client) => {
+    const ranPayer = getRandom(payersArray);
       await Client.findByIdAndUpdate(
-        {_id: client._id}, 
-        { $addToSet: 
-            {insurance: {
-              payer_id: new ObjectId(ranPayer._id)
-            }}
+        client._id,
+        { $addToSet: { 
+            insurance: { 
+              payerId: new ObjectId(ranPayer._id),
+              priority: 'Primary',
+              subscriber: {
+                relationshipToPatient: await getRandom(relationshipTypes),
+                name: await getRandom(fullNames),
+                dateOfBirth: await getRandomDate(new Date(1951, 0, 1), new Date()),
+                address: {
+                  mailing: await getRandom(addresses),
+                  physical: await getRandom(addresses)
+                }
+              },
+              beginDate: await getRandomDate(new Date(2000, 0, 1), new Date()),
+              endDate: await getRandomDate(new Date(2000, 0, 1), new Date()),
+            } 
+          } 
         }
-        )
-    })
+      );
+  });
+  await Promise.all(updatePromises);
 
 
-
-  process.exit(0)
-})
+  process.exit(0);
+});
