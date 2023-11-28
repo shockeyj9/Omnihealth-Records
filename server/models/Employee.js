@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const employeeSchema = new Schema({
-    demographics: [
+    demographics: 
         {
             name: {
                 type: String,
@@ -55,18 +55,23 @@ const employeeSchema = new Schema({
                 }
             ]
         }
-    ],
-    supervisors: {
-        type: Schema.Types.ObjectId,
-        ref: 'Employee'
-    },
-    startDate: {
-        type: Date,
-        required: true,
-    },
-    endDate: {
-        type: Date,
-    }
+    ,
+    supervisors: [
+        {
+            supervisor_id:{
+                type: Schema.Types.ObjectId,
+                ref: 'Employee'
+            },
+            startDate: {
+                type: Date,
+                required: true,
+            },
+            endDate: {
+                type: Date,
+            }
+        }
+    ]
+
 });
 
 const Employee = model('Employee', employeeSchema);

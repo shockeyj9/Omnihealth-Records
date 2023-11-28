@@ -151,6 +151,23 @@ db.once("open", async () => {
   await Promise.all(updatePromises);
   console.log("Client's insurance and programs added")
 
+//Create Employee supervisor
+const employees = await Employee.find({}).lean().exec();
+const supervisors = employees.map(async (emp) => {
+  const ranSup = await getRandom(employees);
+  await Employee.findByIdAndUpdate(
+    emp._id,
+    {$push:
+      {supervisors: 
+        {supervisor_id: ranSup._id,
+          startDate: await getRandomDate(new Date(2000, 0, 1), new Date())
+        }
+      }
+    }
+  )
+})
+await Promise.all(supervisors);
+
 
   process.exit(0);
 });
