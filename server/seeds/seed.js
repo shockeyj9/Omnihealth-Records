@@ -1,5 +1,5 @@
 const db = require("../config/connection");
-const { Client, Payer, Employee, Program } = require("../models");
+const { Client, Payer, Employee, Program, Activity } = require("../models");
 const cleanDB = require("./cleanDB");
 const { getRandom, getRandomDate } = require("./helpers");
 const mongoose = require("mongoose");
@@ -21,6 +21,7 @@ const {
   programs,
   roles,
   empNames,
+  activities,
 } = require("./dataArrays");
 
 db.once("open", async () => {
@@ -29,6 +30,8 @@ db.once("open", async () => {
   await cleanDB("Payer", "payers");
   await cleanDB("Employee", "employees");
   await cleanDB("Program", "programs");
+  await cleanDB("Activity", "activities");
+
 
   //create clients
   await Promise.all(
@@ -116,10 +119,14 @@ db.once("open", async () => {
   );
   console.log("Employees Created!");
 
-  //Add insurance and program to client documents  
+  //Arrays for following seeding
   const clients = await Client.find({}).lean().exec();
   const payersArray = await Payer.find({}).lean().exec();
   const programArray = await Program.find({}).lean().exec();
+  const employees = await Employee.find({}).lean().exec();
+
+
+  //Add insurance and program to client documents  
   const updatePromises = clients.map(async (client) => {
     const ranPayer = getRandom(payersArray);
     const ranProgram = getRandom(programArray);
@@ -152,7 +159,6 @@ db.once("open", async () => {
   console.log("Client's insurance and programs added")
 
 //Create Employee supervisor
-const employees = await Employee.find({}).lean().exec();
 const supervisors = employees.map(async (emp) => {
   const ranSup = await getRandom(employees);
   await Employee.findByIdAndUpdate(
@@ -168,6 +174,18 @@ const supervisors = employees.map(async (emp) => {
 })
 await Promise.all(supervisors);
 
+//Create Activity
+const activity = activities.map(async (act)=>{
+  await Activity.insertMany({
+    name: act.name,
+    procedureCode: act.procedureCode,
+    beginDate: await getRandomDate(new Date(2000, 0, 1), new Date()),
+    programs: await getRandom(programArray),
+    payers: await getRandom(payersArray)
+  })
+})
+await Promise.all(activity);
+console.log('Activity Created!')
 
   process.exit(0);
 });

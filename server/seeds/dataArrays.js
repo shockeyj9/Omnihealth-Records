@@ -286,6 +286,41 @@ const fullNames = [
     'Case Manager',
   ];
 
+  const activities = [
+    {
+      name: "Individual Counseling",
+      procedureCode: {
+        code: "90837",
+        fee: 100
+      },
+      beginDate: '2023-01-01'
+    },
+    {
+      name:  "Group Therapy",
+      procedureCode: {
+        code: "90853",
+        fee: 50
+      },
+      beginDate: '2023-01-01'
+    },
+    {
+      name:  "Family Therapy",
+      procedureCode: {
+        code: "90847",
+        fee: 75
+      },
+      beginDate: '2023-01-01'
+    },
+    {
+      name:  "Psychiatric Assessment",
+      procedureCode: {
+        code: "90791",
+        fee: 275
+      },
+      beginDate: '2023-01-01'
+    },
+  ]
+
 
   module.exports = {
     fullNames,
@@ -301,5 +336,6 @@ const fullNames = [
     payers,
     programs,
     roles,
-    empNames
+    empNames,
+    activities
   }
