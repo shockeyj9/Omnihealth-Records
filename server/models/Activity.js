@@ -5,7 +5,7 @@ const activitySchema = new Schema({
         type: String,
         required: true,
     },
-    procedureCode: [
+    procedureCode: 
         {
             code: {
                 type: String,
@@ -16,7 +16,7 @@ const activitySchema = new Schema({
                 required: true
             }
         }
-    ],
+    ,
     document: [
         {
             // may need default objedt id if it isn't created

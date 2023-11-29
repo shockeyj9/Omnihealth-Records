@@ -26,6 +26,33 @@ const fullNames = [
     'Yara Carter'
   ];
 
+  const empNames = [
+    'John Smith',
+    'Emily Johnson',
+    'Michael Davis',
+    'Jessica Brown',
+    'Brian Wilson',
+    'Ashley Martin',
+    'Christopher Lee',
+    'Amanda Miller',
+    'David Jones',
+    'Sarah Taylor',
+    'Matthew Wilson',
+    'Olivia White',
+    'Daniel Davis',
+    'Sophia Moore',
+    'Christopher Smith',
+    'Emma Johnson',
+    'Joshua Brown',
+    'Grace Wilson',
+    'Tyler Martin',
+    'Isabella Lee',
+    'Andrew Miller',
+    'Madison Davis',
+    'Ryan Taylor',
+    'Abigail Wilson'
+  ];
+
   const sex = [
     'Male',
     'Female'
@@ -259,6 +286,41 @@ const fullNames = [
     'Case Manager',
   ];
 
+  const activities = [
+    {
+      name: "Individual Counseling",
+      procedureCode: {
+        code: "90837",
+        fee: 100
+      },
+      beginDate: '2023-01-01'
+    },
+    {
+      name:  "Group Therapy",
+      procedureCode: {
+        code: "90853",
+        fee: 50
+      },
+      beginDate: '2023-01-01'
+    },
+    {
+      name:  "Family Therapy",
+      procedureCode: {
+        code: "90847",
+        fee: 75
+      },
+      beginDate: '2023-01-01'
+    },
+    {
+      name:  "Psychiatric Assessment",
+      procedureCode: {
+        code: "90791",
+        fee: 275
+      },
+      beginDate: '2023-01-01'
+    },
+  ]
+
 
   module.exports = {
     fullNames,
@@ -273,5 +335,7 @@ const fullNames = [
     relationshipTypes,
     payers,
     programs,
-    roles
+    roles,
+    empNames,
+    activities
   }

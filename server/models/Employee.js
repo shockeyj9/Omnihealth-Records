@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const employeeSchema = new Schema({
-    demographics: [
+    demographics: 
         {
             name: {
                 type: String,
@@ -16,7 +16,7 @@ const employeeSchema = new Schema({
                 required: true,
             },
             gender: {
-                // input field 
+                type: String,
             },
             race: {
                 type: String,
@@ -25,20 +25,18 @@ const employeeSchema = new Schema({
                 type: String,
             },
             role: {
-                // input field
+                type: String,
             },
-            contactInfo: [
+            contactInfo: 
                 {
                     phone: {
-                        type: Number,
-                        // value
+                        type: String,
                     },
                     email: {
                         type: String,
-                        // value
                     }
                 }
-            ],
+            ,
             addresses: [
                 {
                     mailing: {
@@ -57,17 +55,23 @@ const employeeSchema = new Schema({
                 }
             ]
         }
-    ],
-    supervisors: {
-        // ["SELF-REFERENCE EMPLOYEE MODEL FOR SUPERVISOR ObjectIds"],
-    },
-    startDate: {
-        type: Date,
-        required: true,
-    },
-    endDate: {
-        type: Date,
-    }
+    ,
+    supervisors: [
+        {
+            supervisor_id:{
+                type: Schema.Types.ObjectId,
+                ref: 'Employee'
+            },
+            startDate: {
+                type: Date,
+                required: true,
+            },
+            endDate: {
+                type: Date,
+            }
+        }
+    ]
+
 });
 
 const Employee = model('Employee', employeeSchema);
