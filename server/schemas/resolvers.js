@@ -3,11 +3,11 @@ const { Activity, Client, Employee, Financial, Payer, Program, Schedule } = requ
 
 const resolvers = {
     Query: {
-        
-      },
-      Mutation: {
-        
-}}
+        client: async () => {
+          return await Client.find({})
+        }
+      }
+}
 
 
 

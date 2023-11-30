@@ -2,66 +2,50 @@ const typeDefs = `
   type Activity {
     _id: ID!
     name: String
-    procedureCode: 
-    document: 
-    beginDate:
-    endDate: 
     programs: [Program]
     payer: [Payer]
   }
-  
+
+  type Demographics {
+    _id: ID!
+    name: String
+  }
+
   type Client {
     _id: ID!
-    demographics: 
-    insurance:
-    programManagement:
+    demographics: Demographics
   }
 
   type Employee {
     _id: ID!
-    demographics:
-    supervisors:
-    startDate:
-    endDate:
-
+    demographics: Demographics
   }
 
   type Financial {
     _id: ID!
     client_id: [Client]
-    staff_id: [Staff]
+    staff_id: [Employee]
     activity_id: [Activity]
-    procedure:
-    fee:
-    status:
-    beginDate:
-    endDate:
-
   }
 
   type Payer {
     _id: ID!
     name: String
     electronic_id: String
-    beginDate:
-    endDate:
   }
 
   type Program {
     _id: ID!
     name: String
-    beginDate:
-    endDate:
   }
 
   type Schedule {
     _id: ID!
     client_id: [Client]
-    staff_id: [Staff]
+    staff_id: [Employee]
     activity_id: [Activity]
     status: String
-    beginDate:
-    endDate:
+   
   }
 
   type Query {
@@ -71,12 +55,7 @@ const typeDefs = `
     financial: [Financial]
     payer: [Payer]
     program: [Program]
-    schedule: [Schedule]
-    
-  }
-
-  type Mutation {
-    
+    schedule: [Schedule] 
   }
 `;
 
