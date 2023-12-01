@@ -41,7 +41,13 @@ scalar DateTime
         activity(activityId: ID!): Activity
     }
     type Mutation{
-        addActivity(name: String!, procedureCode:ProcedureInput!, document: DocumentInput, beginDate: DateTime!, endDate: DateTime, programs: [ProgramInput],payers: [PayerInput]): Activity
-    }
+        addActivity(name: String!, procedureCode:ProcedureInput!, 
+            document: DocumentInput, beginDate: DateTime!, endDate: DateTime, 
+            programs: [ProgramInput],payers: [PayerInput]): Activity
+        updateActivity(_id: ID!,name: String, procedureCode:ProcedureInput, 
+            document: DocumentInput, beginDate: DateTime, endDate: DateTime, 
+            programs: [ProgramInput],payers: [PayerInput]): Activity
+        deleteActivity(_id: ID!): Activity
+    }   
 
 `
