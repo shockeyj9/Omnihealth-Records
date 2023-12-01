@@ -99,12 +99,11 @@ db.once("open", async () => {
           race: await getRandom(races),
           ethnicity: await getRandom(ethnicities),
           occupation: await getRandom(occupations),
-          contactInfo: [
+          contactInfo: 
             {
               phone: await getRandom(phoneNumbers),
               email: await getRandom(emails),
             },
-          ],
           addresses: [
             {
               mailing: await getRandom(addresses),
