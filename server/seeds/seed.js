@@ -1,5 +1,5 @@
 const db = require("../config/connection");
-const { Client, Payer, Employee, Program, Activity } = require("../models");
+const { Client, Payer, Employee, Program, Activity, User } = require("../models");
 const cleanDB = require("./cleanDB");
 const { getRandom, getRandomDate } = require("./helpers");
 const mongoose = require("mongoose");
@@ -185,6 +185,15 @@ const activity = activities.map(async (act)=>{
 })
 await Promise.all(activity);
 console.log('Activity Created!')
+
+//Create test user
+await User.create({
+  username: "testUser",
+  password: "12345Aa!",
+  email: "testemail@gmail.com"
+})
+console.log('Created test user')
+
 
   process.exit(0);
 });

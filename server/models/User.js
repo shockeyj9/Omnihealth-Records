@@ -10,7 +10,7 @@ const userSchema = new Schema({
         required: true,
     },
     email: {
-        type: Date,
+        type: String,
         required: true,
     }
 });
