@@ -46,14 +46,34 @@ scalar DateTime
         startDate: DateTime
         endDate: DateTime
     }
+    input DemographicsInput{
+        name: String
+        dateOfBirth: DateTime
+        sex: String
+        gender: String
+        race: String
+        ethnicity: String
+        role: String
+        contactInfo: ContactInfoInput
+        addresses: AddressesInput
+    }
     input SupervisorsInput{
-        supervisor_id: ID!
-        startDate: DateTime!
+        supervisor_id: ID
+        startDate: DateTime
         endDate: DateTime
     }
 
     type Query{
         employees: [Employee]
         employee(_id: ID!): Employee
+    }
+    type Mutation{
+        addEmployee(
+            demographics: DemographicsInput!, supervisors: SupervisorsInput
+        ): Employee
+        updateEmployee(
+            _id: ID!, demographics: DemographicsInput, supervisors: SupervisorsInput
+        ): Employee
+
     }
 `

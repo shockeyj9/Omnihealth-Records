@@ -8,5 +8,28 @@ module.exports = {
         employee: async (parent,{_id})=>{
             return await Employee.findById(_id);
         },
+    },
+    Mutation: {
+        addEmployee: async (
+            parent,
+            {demographics,supervisors}
+        )=>{
+            return await Employee.create({demographics,supervisors})
+        },
+        updateEmployee: async(
+            parent,
+            {_id, demographics,supervisors}
+        )=>{
+            return await Employee.findByIdAndUpdate(
+                _id,
+                {$set:
+                    {
+                        demographics: {...demographics},
+                        supervisors: {...supervisors}
+                    }
+                },
+                {new: true}
+            )
+        }
     }
 }
