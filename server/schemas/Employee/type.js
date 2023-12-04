@@ -74,6 +74,7 @@ scalar DateTime
         updateEmployee(
             _id: ID!, demographics: DemographicsInput, supervisors: SupervisorsInput
         ): Employee
+        deleteEmployee(_id: ID!): Employee
 
     }
 `

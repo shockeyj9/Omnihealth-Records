@@ -30,6 +30,12 @@ module.exports = {
                 },
                 {new: true}
             )
-        }
+        },
+        deleteEmployee: async (
+            parent,
+            {_id}
+            )=>{
+                return Employee.findByIdAndDelete({_id})
+            }
     }
 }
