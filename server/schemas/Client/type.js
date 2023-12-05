@@ -54,5 +54,11 @@ scalar DateTime
 
     type Query{
         clients: [Client]
+        client(clientId: ID!): Client
+    }
+
+    type Mutation {
+        addClient(clientId: ID!, demographics: Demographics)
+        removeClient: Client
     }
 `
