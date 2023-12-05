@@ -69,7 +69,7 @@ scalar DateTime
         gender: String
         race: String
         ethnicity: String
-        role: String
+        occupation: String
         contactInfo: ContactInfoInput
         addresses: AddressesInput
     }
@@ -97,7 +97,7 @@ scalar DateTime
 
     type Query{
         clients: [Client]
-        client(clientId: ID!): Client
+        client(_id: ID!): Client
     }
 
     type Mutation {

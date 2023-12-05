@@ -1,17 +1,17 @@
-const { Payer } = require('../../models')
+const { Payer } = require("../../models")
 
 module.exports = {
     Query: {
         payers: async () => {
-            return await Payer.find({})
+            return await Payer.find({});
         },
-        payers: async (parent, { payerId }) => {
-            return await Payer.findByOne({ _id: payerId });
+        payer: async (parent, { _id }) => {
+            return await Payer.findById(_id);
         }
     },
 
     Mutation: {
-        addPayer: async (parent, { name, electronic_id }) => {
+        addPayer: async (parent, { name, electronic_id, beginDate, endDate }) => {
             return await Payer.create(
                 {
                     name,
@@ -20,11 +20,10 @@ module.exports = {
                     endDate
                 });
         },
-        updatePayer: async (parent, { _id, name, electronic_id }) => {
+        updatePayer: async (parent, { _id, name, electronic_id, beginDate, endDate }) => {
             return await Payer.findByIdAndUpdate(
                 _id,
-                {
-                    $set:
+                {$set:
                     {
                         name,
                         electronic_id,

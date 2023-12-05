@@ -11,7 +11,7 @@ type Program {
 
 type Query{
     programs: [Program]
-    program(programId: ID!): Program
+    program(_id: ID!): Program
   }
   
   type Mutation {

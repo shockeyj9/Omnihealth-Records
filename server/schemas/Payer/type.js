@@ -12,12 +12,12 @@ scalar DateTime
 
     type Query{
         payers: [Payer]
-        payer(payerId: ID!): Payer
+        payer(_id: ID!): Payer
     }
     
     type Mutation {
         addPayer(name: String!, electronic_id: String, beginDate: DateTime!, endDate: DateTime): Payer
-        updatePayer(name: String!, electronic_id: String, beginDate: DateTime!, endDate: DateTime): Payer
+        updatePayer(_id:ID!, name: String!, electronic_id: String, beginDate: DateTime!, endDate: DateTime): Payer
         removePayer(_id: ID!): Payer
     } 
 `

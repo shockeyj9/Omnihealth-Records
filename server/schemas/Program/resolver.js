@@ -5,17 +5,22 @@ module.exports = {
         programs: async () => {
             return await Program.find({})
         },
-        programs: async (parent, {programId}) => {
-            return await Program.findByOne({_id: programId});
+        program: async (parent, {_id}) => {
+            return await Program.findById(_id);
         }
     },
 
     Mutation: {
-        addPayer: async (parent, {name}) => {
-            return await Program.create({name});
+        addProgram: async (parent, {name, beginDate, endDate}) => {
+            return await Program.create(
+                {
+                    name, 
+                    beginDate, 
+                    endDate
+                });
         },
-        updatePayer: async (parent, {_id, name}) => {
-            return await Program.findByIdndUpdate(
+        updateProgram: async (parent, {_id, name, beginDate, endDate}) => {
+            return await Program.findByIdAndUpdate(
                 _id,
                 {
                     $set:

@@ -3,26 +3,31 @@ const { Client } = require('../../models')
 module.exports = {
     Query: {
         clients: async () => {
-            return await Client.find({})
+            return await Client.find({});
         },
-
-        client: async (parent, { clientId }) => {
-            return await Client.findbyOne({_id: clientId});
-        }
+        client: async (parent, {_id}) => {
+            return await Client.findById(_id);
+        },
     },
 
     Mutation: {
-        addClient: async (parent, { demographics, insurance, programManagement }) => {
+        addClient: async (
+            parent, 
+            { demographics, insurance, programManagement }
+            ) => {
             return await Client.create(
                 {
                     demographics, 
                     insurance, 
                     programManagement
-                });
+                })
         },
-        updateClient: async (parent, { _id, demographics, insurance, programManagement }) => {
+        updateClient: async (
+            parent, 
+            { _id, demographics, insurance, programManagement }
+            ) => {
             return await Client.findByIdAndUpdate(
-                 _id ,
+                 _id,
                 {$set:
                     {
                         demographics: { ...demographics },
@@ -31,11 +36,13 @@ module.exports = {
                     }
                 },
                 { new: true }
-
             )
         },
-        removeClient: async (parent, {_id}) => {
-            return Client.findByIdAndDelete({_id});
+        removeClient: async (
+            parent, 
+            {_id}
+            ) => {
+            return Client.findByIdAndDelete({_id})
         }
     }
 

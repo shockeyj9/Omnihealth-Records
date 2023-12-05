@@ -67,6 +67,7 @@ scalar DateTime
         employees: [Employee]
         employee(_id: ID!): Employee
     }
+    
     type Mutation{
         addEmployee(
             demographics: DemographicsInput!, supervisors: SupervisorsInput
