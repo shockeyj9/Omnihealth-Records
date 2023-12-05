@@ -1,22 +1,28 @@
-const {Payer} = require('../../models')
+const { Payer } = require('../../models')
 
 module.exports = {
     Query: {
         payers: async () => {
             return await Payer.find({})
         },
-        payers: async (parent, {payerId}) => {
-            return await Payer.findByOne({_id: payerId});
+        payers: async (parent, { payerId }) => {
+            return await Payer.findByOne({ _id: payerId });
         }
     },
 
     Mutation: {
-        addPayer: async (parent, {name, electronic_id}) => {
-            return await Payer.create(name, electronic_id);
+        addPayer: async (parent, { name, electronic_id }) => {
+            return await Payer.create(
+                {
+                    name,
+                    electronic_id,
+                    beginDate,
+                    endDate
+                });
         },
-        updatePayer: async (parent, {_id, name, electronic_id}) => {
-            return await Payer.findOneAndUpdate(
-                {_id},
+        updatePayer: async (parent, { _id, name, electronic_id }) => {
+            return await Payer.findByIdAndUpdate(
+                _id,
                 {
                     $set:
                     {
@@ -26,16 +32,15 @@ module.exports = {
                         endDate
                     }
                 },
-                    {new: true }
+                { new: true }
 
             )
         },
-        removePayer: async (parent, {_id}) => {
-            return await Payer.findOneAndDelete(_id);
+        removePayer: async (parent, { _id }) => {
+            return await Payer.findByIdAndDelete({ _id });
         }
     }
-    
-    }
+
+}
 
 
-   

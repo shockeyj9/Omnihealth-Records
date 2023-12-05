@@ -15,8 +15,9 @@ type Query{
   }
   
   type Mutation {
-      addProgram(programId: ID!, name: String!, beginDate: DateTime!, endDate: DateTime)
-      removeProgram: Program
+      addProgram(name: String!, beginDate: DateTime!, endDate: DateTime): Program
+      updateProgram(_id:ID!, name: String!, beginDate: DateTime!, endDate: DateTime): Program
+      removeProgram(_id: ID!): Program
   }
-}
+
 `

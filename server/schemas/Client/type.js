@@ -10,8 +10,8 @@ scalar DateTime
         race: String
         ethnicity: String
         occupation: String
-        contactInfo: [ContactInfo]
-        addresses: [Adresses]
+        contactInfo: ContactInfo
+        addresses: [Addresses]
     }
     
     type ContactInfo {
@@ -47,8 +47,51 @@ scalar DateTime
     }
 
     type ProgramManagement{
-        program_id: Program
+        program_id: ProgramManagement
         beginDate: DateTime!
+        endDate: DateTime
+    }
+
+    input ContactInfoInput{
+        phone: String
+        email: String
+    }
+    input AddressesInput{
+        mailing: String
+        physical: String
+        startDate: DateTime
+        endDate: DateTime
+    }
+    input DemographicsInput{
+        name: String
+        dateOfBirth: DateTime
+        sex: String
+        gender: String
+        race: String
+        ethnicity: String
+        role: String
+        contactInfo: ContactInfoInput
+        addresses: AddressesInput
+    }
+
+    input InsuranceInput{
+        payerId: ID
+        priority: String
+        subscriber: ID
+        beginDate: DateTime
+        endDate: DateTime
+    }
+
+    input SubscriberInput{
+        relationshipToPatient: String
+        name: String
+        dateOfBirth: DateTime
+        adresses: AddressesInput
+    }
+
+    input ProgramManagementInput{
+        program_id: ID
+        beginDate: DateTime
         endDate: DateTime
     }
 
@@ -58,7 +101,12 @@ scalar DateTime
     }
 
     type Mutation {
-        addClient(clientId: ID!, demographics: Demographics)
-        removeClient: Client
+        addClient(
+            demographics: DemographicsInput!, insurance: InsuranceInput, programManagement: ProgramManagementInput
+        ): Client
+        updateClient(
+            _id: ID!,  demographics: DemographicsInput!, insurance: InsuranceInput, programManagement: ProgramManagementInput
+         ): Client
+        removeClient(_id: ID!): Client 
     }
 `

@@ -12,11 +12,11 @@ module.exports = {
 
     Mutation: {
         addPayer: async (parent, {name}) => {
-            return await Program.create(name);
+            return await Program.create({name});
         },
         updatePayer: async (parent, {_id, name}) => {
-            return await Program.findOneAndUpdate(
-                {_id},
+            return await Program.findByIdndUpdate(
+                _id,
                 {
                     $set:
                     {
@@ -30,7 +30,7 @@ module.exports = {
             )
         },
         removeProgram: async (parent, {_id}) => {
-            return await Program.findOneAndDelete(_id);
+            return await Program.findByIdAndDelete({_id});
         }
     
     }

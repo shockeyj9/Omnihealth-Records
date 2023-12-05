@@ -12,16 +12,22 @@ module.exports = {
     },
 
     Mutation: {
-        addClient: async (parent, { demographics }) => {
-            return await Client.create(demographics);
-        },
-        updateClient: async (parent, { _id, demographics }) => {
-            return await Client.findOneAndUpdate(
-                { _id },
+        addClient: async (parent, { demographics, insurance, programManagement }) => {
+            return await Client.create(
                 {
-                    $set:
+                    demographics, 
+                    insurance, 
+                    programManagement
+                });
+        },
+        updateClient: async (parent, { _id, demographics, insurance, programManagement }) => {
+            return await Client.findByIdAndUpdate(
+                 _id ,
+                {$set:
                     {
-                        demographics: { ...demographics }
+                        demographics: { ...demographics },
+                        insurance: {...insurance},
+                        programManagement: {...programManagement}
                     }
                 },
                 { new: true }
@@ -29,7 +35,7 @@ module.exports = {
             )
         },
         removeClient: async (parent, {_id}) => {
-            return await Client.findOneAndDelete(_id);
+            return Client.findByIdAndDelete({_id});
         }
     }
 

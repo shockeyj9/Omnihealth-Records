@@ -16,7 +16,8 @@ scalar DateTime
     }
     
     type Mutation {
-        addPayer(payerId: ID!, name: String!, electronic_id: String, beginDate: DateTime!, endDate: DateTime)
-        removePayer: Payer
+        addPayer(name: String!, electronic_id: String, beginDate: DateTime!, endDate: DateTime): Payer
+        updatePayer(name: String!, electronic_id: String, beginDate: DateTime!, endDate: DateTime): Payer
+        removePayer(_id: ID!): Payer
     } 
 `
