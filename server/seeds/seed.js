@@ -44,7 +44,7 @@ db.once("open", async () => {
           gender: await getRandom(genders),
           race: await getRandom(races),
           ethnicity: await getRandom(ethnicities),
-          roles: await getRandom(roles),
+          occupation: await getRandom(occupations),
           contactInfo: [
             {
               phone: await getRandom(phoneNumbers),
@@ -98,7 +98,7 @@ db.once("open", async () => {
           gender: await getRandom(genders),
           race: await getRandom(races),
           ethnicity: await getRandom(ethnicities),
-          occupation: await getRandom(occupations),
+          role: await getRandom(roles),
           contactInfo: 
             {
               phone: await getRandom(phoneNumbers),
