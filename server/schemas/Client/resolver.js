@@ -1,4 +1,5 @@
-const { Client } = require('../../models')
+const { Client, Payer } = require('../../models')
+
 
 module.exports = {
     Query: {
