@@ -31,6 +31,7 @@ db.once("open", async () => {
   await cleanDB("Employee", "employees");
   await cleanDB("Program", "programs");
   await cleanDB("Activity", "activities");
+  await cleanDB("User", "users");
 
 
   //create clients
