@@ -20,7 +20,7 @@ scalar DateTime
     }
 
     type Insurance {
-        payerId: Payer
+        payerId: ID
         priority: String
         subscriber: Subscriber
         beginDate: DateTime!
@@ -31,10 +31,10 @@ scalar DateTime
         relationshipToPatient: String
         name: String!
         dateOfBirth: DateTime!
-        adresses: [Adresses]
+        addresses: [Addresses]
     }
 
-    type Adresses {
+    type Addresses {
         mailing: String
         physical: String
         startDate: DateTime
@@ -44,6 +44,8 @@ scalar DateTime
     type Client{
         _id: ID!
         demographics: Demographics
+        insurance: Insurance
+        programManagement: ProgramManagement   
     }
 
     type ProgramManagement{
@@ -86,7 +88,7 @@ scalar DateTime
         relationshipToPatient: String
         name: String
         dateOfBirth: DateTime
-        adresses: AddressesInput
+        addresses: AddressesInput
     }
 
     input ProgramManagementInput{
