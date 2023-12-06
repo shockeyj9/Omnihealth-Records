@@ -18,7 +18,7 @@ scalar DateTime
         endDate: DateTime
     }
 
-    type Demographics{
+    type EmpDemographics{
         name: String!
         dateOfBirth: DateTime!
         sex: String!
@@ -32,7 +32,7 @@ scalar DateTime
 
     type Employee{
         _id: ID!
-        demographics: Demographics
+        demographics: EmpDemographics
         supervisors: [Supervisors]
     }
 
@@ -46,7 +46,7 @@ scalar DateTime
         startDate: DateTime
         endDate: DateTime
     }
-    input DemographicsInput{
+    input EmpDemographicsInput{
         name: String
         dateOfBirth: DateTime
         sex: String
@@ -70,10 +70,10 @@ scalar DateTime
     
     type Mutation{
         addEmployee(
-            demographics: DemographicsInput!, supervisors: SupervisorsInput
+            demographics: EmpDemographicsInput!, supervisors: SupervisorsInput
         ): Employee
         updateEmployee(
-            _id: ID!, demographics: DemographicsInput, supervisors: SupervisorsInput
+            _id: ID!, demographics: EmpDemographicsInput, supervisors: SupervisorsInput
         ): Employee
         deleteEmployee(_id: ID!): Employee
 
