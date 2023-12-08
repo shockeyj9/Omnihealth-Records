@@ -9,7 +9,11 @@ import Error from './pages/Error';
 // import Admission from './pages/Admission';
 // import Schedule from './pages/Schedule';
 // import Client from './pages/Client';
-// drop downs
+// import PayerAdministration from "./pages/PayerAdministration"
+// import ActivtyAdministration from "./pages/ActivityAdministration"
+// import ProgramAdministration from "./pages/ProgramAdministration"
+// import EmployeeAdministration from "./pages/EmployeeAdministration"
+
 
 const router = createBrowserRouter([
   {
@@ -35,6 +39,22 @@ const router = createBrowserRouter([
       // {
       //   path:'/Client',
       //   element: <Client />
+      // },
+       // {
+      //   path:'/PayerAdministration',
+      //   element: <PayerAdministration />
+      // },
+       // {
+      //   path:'/ActivityAdministration',
+      //   element: <ActivityAdministration />
+      // },
+       // {
+      //   path:'/ProgramAdministration',
+      //   element: <ProgramAdministration />
+      // },
+       // {
+      //   path:'/EmployeeAdministration',
+      //   element: <EmployeeAdministration />
       // },
     //  need administration sublinks/dropdowns
     ]
