@@ -3,6 +3,7 @@ const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+const morgan = require('morgan')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -17,10 +18,10 @@ const server = new ApolloServer({
 
   const startApolloServer = async () => {
     await server.start();
-    
+    app.use(morgan('tiny'))
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
-    
+
     app.use('/graphql', expressMiddleware(server, {
       context: authMiddleware
     }));
