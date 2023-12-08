@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client'
 
 export const QUERY_EMPLOYEES = gql`
-query getEmployees {
+query employees {
     employees {
       _id
       demographics {
@@ -28,7 +28,7 @@ query getEmployees {
 `;
 
 export const QUERY_EMPLOYEE = gql`
-query getEmployee($id: ID!) {
+query employee($id: ID!) {
     employee(_id: $id) {
       _id
       demographics {

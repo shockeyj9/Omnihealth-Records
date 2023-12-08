@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client'
 
 export const QUERY_PAYERS = gql`
-query getPayers {
+query payers {
     payers {
       _id
       name
@@ -13,7 +13,7 @@ query getPayers {
 `;
 
 export const QUERY_PAYER = gql`
-query getSinglePayer($id: ID!) {
+query payer($id: ID!) {
     payer(_id: $id) {
       _id
       name

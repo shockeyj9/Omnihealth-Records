@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client'
 
 export const QUERY_ACTIVITIES = gql`
-query getActivities {
+query activities {
     activities {
       _id
       name
@@ -25,7 +25,7 @@ query getActivities {
 `;
 
 export const QUERY_ACTIVITY = gql`
-query getActivity($activityId: ID!) {
+query activity($activityId: ID!) {
     activity(activityId: $activityId) {
       _id
       name

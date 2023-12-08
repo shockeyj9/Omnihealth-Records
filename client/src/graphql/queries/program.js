@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client'
 
 export const QUERY_PROGRAMS = gql`
-query getPrograms {
+query programs {
     programs {
       _id
       name
@@ -12,7 +12,7 @@ query getPrograms {
 `;
 
 export const QUERY_PROGRAM = gql`
-query getProgram($id: ID!) {
+query program($id: ID!) {
     program(_id: $id) {
       _id
       name
