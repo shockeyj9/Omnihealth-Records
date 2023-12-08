@@ -5,10 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom/dist'
 import App from './App.jsx'
 // import Login from './pages/Login';
 // import Error from './pages/Error';
-// import FrontDesk from './pages/FrontDesk';
-// import Admission from './pages/Admission';
-// import Schedule from './pages/Schedule';
-// import Client from './pages/Client';
+// // import FrontDesk from './pages/FrontDesk';
+// // import Admission from './pages/Admission';
+// // import Schedule from './pages/Schedule';
+// // import Client from './pages/Client';
 import Payers from './pages/Payers.jsx';
 // import PayerAdministration from "./pages/PayerAdministration"
 // import ActivtyAdministration from "./pages/ActivityAdministration"
@@ -26,9 +26,9 @@ const router = createBrowserRouter([
         index: true,
         element: <Login />
       },
-      // {
-      //   path: '/FrontDesk',
-      //   element: <FrontDesk />
+      // // {
+      // //   path: '/FrontDesk',
+      // //   element: <FrontDesk />
       // },
       // {
       //   path: '/Admission',
@@ -41,19 +41,19 @@ const router = createBrowserRouter([
       // {
       //   path: '/Client',
       //   element: <Client />
-      // },
-      {
-        path: '/Payers',
-        element: <Payers />
-      },
+      // // },
       // {
-      //   path:'/PayerAdministration',
-      //   element: <PayerAdministration />
+      //   path: '/Payers',
+      //   element: <Payers />
       // },
-      // {
-      //   path:'/ActivityAdministration',
-      //   element: <ActivityAdministration />
-      // },
+      // // {
+      // //   path:'/PayerAdministration',
+      // //   element: <PayerAdministration />
+      // // },
+      // // {
+      // //   path:'/ActivityAdministration',
+      // //   element: <ActivityAdministration />
+      // // },
       // {
       //   path:'/ProgramAdministration',
       //   element: <ProgramAdministration />
