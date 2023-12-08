@@ -26,7 +26,7 @@ mutation updatePayer($id: ID!, $name: String!, $beginDate: DateTime!, $electroni
 `;
 
 export const DELETE_PAYER = gql`
-mutation deletePayer($id: ID!) {
+mutation removePayer($id: ID!) {
     removePayer(_id: $id) {
       _id
       name
