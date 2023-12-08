@@ -5,10 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom/dist'
 import App from './App.jsx'
 import Login from './pages/Login';
 import Error from './pages/Error';
-import FrontDesk from './pages/FrontDesk';
-import Admission from './pages/Admission';
-import Schedule from './pages/Schedule';
-import Client from './pages/Client';
+// import FrontDesk from './pages/FrontDesk';
+// import Admission from './pages/Admission';
+// import Schedule from './pages/Schedule';
+// import Client from './pages/Client';
 // drop downs
 
 const router = createBrowserRouter([
@@ -20,22 +20,22 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Login />
-      }, {
-        path: '/FrontDesk',
-        element: <FrontDesk />
-      },
-      {
-        path:'/Admission',
-        element: <Admission />
-      },
-      {
-        path:'/Schedule',
-        element: <Schedule />
-      },
-      {
-        path:'/Client',
-        element: <Client />
-      },
+      }, 
+      //   path: '/FrontDesk',
+      //   element: <FrontDesk />
+      // },
+      // {
+      //   path:'/Admission',
+      //   element: <Admission />
+      // },
+      // {
+      //   path:'/Schedule',
+      //   element: <Schedule />
+      // },
+      // {
+      //   path:'/Client',
+      //   element: <Client />
+      // },
     //  need administration sublinks/dropdowns
     ]
   }
