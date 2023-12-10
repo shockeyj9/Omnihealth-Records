@@ -10,6 +10,7 @@ import Error from './pages/Error';
 // import Schedule from './pages/Schedule';
 // import Client from './pages/Client';
 import Payers from './pages/Payers.jsx';
+
 // import PayerAdministration from "./pages/PayerAdministration"
 // import ActivtyAdministration from "./pages/ActivityAdministration"
 import ProgramAdministration from "./pages/ProgramAdministration"
@@ -17,6 +18,8 @@ import ProgramAdministration from "./pages/ProgramAdministration"
 import AddPayer from "./pages/AddPayer"
 import AddProgram from "./pages/AddProgram"
 import AddActivity from "./pages/AddActivity.jsx"
+import SinglePayer from './pages/SinglePayer.jsx';
+// drop downs
 
 
 const router = createBrowserRouter([
@@ -45,10 +48,6 @@ const router = createBrowserRouter([
       //   path: '/Client',
       //   element: <Client />
       // },
-      {
-        path: '/Payers',
-        element: <Payers />
-      },
       // {
       //   path:'/PayerAdministration',
       //   element: <PayerAdministration />
@@ -77,6 +76,15 @@ const router = createBrowserRouter([
         path:'/AddActivity',
         element: <AddActivity />
       },
+    //  need administration sublinks/dropdowns
+    {
+      path:'/Payers',
+      element: <Payers />
+    },
+    {
+      path: '/Payer/:payerId',
+      element: <SinglePayer />,
+    },
     ]
   }
 ])
