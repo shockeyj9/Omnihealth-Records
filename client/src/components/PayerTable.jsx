@@ -1,9 +1,7 @@
-import { useQuery } from '@apollo/client';
-import { QUERY_PAYERS } from '../graphql/queries/payer';
+import { Link } from 'react-router-dom';
 
-export default function PayerTable(){
-    const { loading, error, data } = useQuery(QUERY_PAYERS);
-    const payers = data?.payers || [];
+export default function PayerTable({payers}){
+
     return (
         <tbody>
             <tr>
@@ -14,6 +12,9 @@ export default function PayerTable(){
             </tr>
                 {payers && payers.map((payer)=>(
                     <tr key={payer._id}>
+                        <td>
+                            
+                        </td>
                         <td >{payer.beginDate}</td>
                         <td >{payer.endDate}</td>
                         <td >{payer.name}</td>
