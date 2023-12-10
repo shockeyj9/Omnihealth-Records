@@ -9,7 +9,7 @@ export default function UpdatePayerForm({payer,updatePayer}) {
     const [formState, setformState] = useState(
   {     id: payer._id,
        name: payer.name,
-       electronicId: payer.electronicId,
+       electronicId: payer.electronic_id,
        beginDate: payer.beginDate,
        endDate: payer.endDate,}
     );
@@ -40,9 +40,9 @@ export default function UpdatePayerForm({payer,updatePayer}) {
                 value={formState.name}
                 onChange={handleChange}/>
             <input type="text"
-                name="electronicId"
-                placeholder={payer.electronicId}
-                value={formState.electronicId}
+                name="electronic_id"
+                placeholder={payer.electronic_id}
+                value={formState.electronic_id}
                 onChange={handleChange} />
             <input type="text"
                 name="beginDate"
