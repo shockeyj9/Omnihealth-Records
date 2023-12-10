@@ -10,8 +10,17 @@ import Error from './pages/Error';
 // import Schedule from './pages/Schedule';
 // import Client from './pages/Client';
 import Payers from './pages/Payers.jsx';
+
+// import PayerAdministration from "./pages/PayerAdministration"
+// import ActivtyAdministration from "./pages/ActivityAdministration"
+import ProgramAdministration from "./pages/ProgramAdministration"
+// import EmployeeAdministration from "./pages/EmployeeAdministration"
+import AddPayer from "./pages/AddPayer"
+import AddProgram from "./pages/AddProgram"
+import AddActivity from "./pages/AddActivity.jsx"
 import SinglePayer from './pages/SinglePayer.jsx';
 // drop downs
+
 
 const router = createBrowserRouter([
   {
@@ -24,21 +33,49 @@ const router = createBrowserRouter([
         element: <Login />
       },
       //  {
-      //   path: '/FrontDesk',
-      //   element: <FrontDesk />
+      //    path: '/FrontDesk',
+      //    element: <FrontDesk />
       // },
       // {
-      //   path:'/Admission',
+      //   path: '/Admission',
       //   element: <Admission />
       // },
       // {
-      //   path:'/Schedule',
+      //   path: '/Schedule',
       //   element: <Schedule />
       // },
       // {
-      //   path:'/Client',
+      //   path: '/Client',
       //   element: <Client />
       // },
+      // {
+      //   path:'/PayerAdministration',
+      //   element: <PayerAdministration />
+      // },
+      // {
+      //   path:'/ActivityAdministration',
+      //   element: <ActivityAdministration />
+      // },
+      {
+        path:'/ProgramAdministration',
+        element: <ProgramAdministration />
+      },
+      // {
+      //   path:'/EmployeeAdministration',
+      //   element: <EmployeeAdministration />
+      // },
+      {
+        path:'/AddPayer',
+        element: <AddPayer />
+      },
+      {
+        path:'/AddProgram',
+        element: <AddProgram />
+      },
+      {
+        path:'/AddActivity',
+        element: <AddActivity />
+      },
     //  need administration sublinks/dropdowns
     {
       path:'/Payers',
