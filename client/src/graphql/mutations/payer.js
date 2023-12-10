@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client'
 
 export const ADD_PAYER = gql`
-mutation addPayer($name: String!, $beginDate: DateTime!, $electronicId: String, $endDate: DateTime) {
-    addPayer(name: $name, beginDate: $beginDate, electronic_id: $electronicId, endDate: $endDate) {
+mutation addPayer($name: String!, $beginDate: DateTime!, $electronic_id: String, $endDate: DateTime) {
+    addPayer(name: $name, beginDate: $beginDate, electronic_id: $electronic_id, endDate: $endDate) {
       _id
       name
       electronic_id
@@ -14,8 +14,8 @@ mutation addPayer($name: String!, $beginDate: DateTime!, $electronicId: String, 
 
 
 export const UPDATE_PAYER = gql`
-mutation updatePayer($id: ID!, $name: String!, $beginDate: DateTime!, $electronicId: String, $endDate: DateTime) {
-    updatePayer(_id: $id, name: $name, beginDate: $beginDate, electronic_id: $electronicId, endDate: $endDate) {
+mutation updatePayer($id: ID!, $name: String!, $beginDate: DateTime!, $electronic_id: String, $endDate: DateTime) {
+    updatePayer(_id: $id, name: $name, beginDate: $beginDate, electronic_id: $electronic_id, endDate: $endDate) {
       _id
       name
       electronic_id

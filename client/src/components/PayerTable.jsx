@@ -29,7 +29,7 @@ export default function PayerTable({payers}) {
             <td>{payer.beginDate}</td>
             <td>{payer.endDate}</td>
             <td>{payer.name}</td>
-            <td>{payer.electronicId}</td>
+            <td>{payer.electronic_id}</td>
           </tr>
         ))}
     </tbody>
