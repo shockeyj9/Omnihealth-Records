@@ -1,33 +1,41 @@
 import { usePayerContext } from "../utils/contexts/PayerContext";
-
 import { useState } from 'react';
-import { UPDATE_PAYER } from '../utils/actions';
+import { useParams } from "react-router-dom";
+import { useQuery,useMutation } from "@apollo/client";
+import { QUERY_PAYER } from "../graphql/queries/payer";
+import { UPDATE_PAYER } from "../graphql/mutations/payer";
 
 
-export default function UpdatePayerForm({payer,updatePayer}) {
+export default function UpdatePayerForm() {
+    const { payerId } = useParams();
+    const { loading, error, data } = useQuery(QUERY_PAYER, {variables: {id: payerId}});
+    const payerData = data?.payer || [];
+   
+    const [updatePayer, { errors }] = useMutation(UPDATE_PAYER);
 
     const [formState, setformState] = useState(
-  {     id: payer._id,
-       name: payer.name,
-       electronicId: payer.electronic_id,
-       beginDate: payer.beginDate,
-       endDate: payer.endDate,}
+  {     id: payerData._id,
+       name: payerData.name,
+       electronic_id: payerData.electronic_id,
+       beginDate: payerData.beginDate,
+       endDate: payerData.endDate,}
     );
-   console.log(formState)
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setformState({
             ...formState, [name]:value
         })
+        
       };
     
     const handleFormSubmit = (event)=>{
         event.preventDefault();
         updatePayer({
-            variables: {id: payer._id, ...formState}
+            variables: {id: payerData._id, ...formState}
         })
-        console.log(formState)
+        window.location.replace('/Payers')
     }
 
 
@@ -36,22 +44,22 @@ export default function UpdatePayerForm({payer,updatePayer}) {
             <input 
                 type="text"
                 name="name"
-                placeholder={payer.name}
+                placeholder={payerData.name}
                 value={formState.name}
                 onChange={handleChange}/>
             <input type="text"
                 name="electronic_id"
-                placeholder={payer.electronic_id}
+                placeholder={payerData.electronic_id}
                 value={formState.electronic_id}
                 onChange={handleChange} />
             <input type="text"
                 name="beginDate"
-                placeholder={payer.beginDate}
+                placeholder={payerData.beginDate}
                 value={formState.beginDate}
                 onChange={handleChange} />
             <input type="text"
                 name="endDate"
-                placeholder={payer.endDate}
+                placeholder={payerData.endDate}
                 onChange={handleChange} />
             <button type="submit">Submit Changes</button>
         </form>
