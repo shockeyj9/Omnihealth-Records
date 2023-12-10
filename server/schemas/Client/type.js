@@ -49,7 +49,7 @@ scalar DateTime
     }
 
     type ProgramManagement{
-        program_id: ProgramManagement
+        programManagement_id: ID!
         beginDate: DateTime!
         endDate: DateTime
     }
@@ -92,7 +92,7 @@ scalar DateTime
     }
 
     input ProgramManagementInput{
-        program_id: ID
+        programManagement_id: ID
         beginDate: DateTime
         endDate: DateTime
     }
