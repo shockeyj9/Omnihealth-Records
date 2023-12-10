@@ -1,0 +1,1 @@
+export const UPDATE_PAYER = 'UPDATE_PAYER';

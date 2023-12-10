@@ -10,6 +10,7 @@ import Error from './pages/Error';
 // import Schedule from './pages/Schedule';
 // import Client from './pages/Client';
 import Payers from './pages/Payers.jsx';
+import SinglePayer from './pages/SinglePayer.jsx';
 // drop downs
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
     {
       path:'/Payers',
       element: <Payers />
+    },
+    {
+      path: '/Payer/:payerId',
+      element: <SinglePayer />,
     },
     ]
   }

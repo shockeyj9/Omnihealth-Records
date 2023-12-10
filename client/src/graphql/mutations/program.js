@@ -11,7 +11,7 @@ mutation addProgram($name: String!, $beginDate: DateTime!, $endDate: DateTime) {
   }
 `;
 
-export const UPDATE_PAYER = gql`
+export const UPDATE_PROGRAM = gql`
 mutation updateProgram($id: ID!, $name: String!, $beginDate: DateTime!, $endDate: DateTime) {
     updateProgram(_id: $id, name: $name, beginDate: $beginDate, endDate: $endDate) {
       _id
@@ -22,7 +22,7 @@ mutation updateProgram($id: ID!, $name: String!, $beginDate: DateTime!, $endDate
   }
 `;
 
-export const DELETE_PAYER = gql`
+export const DELETE_PROGRAM = gql`
 mutation removeProgram($id: ID!) {
     removeProgram(_id: $id) {
       _id
