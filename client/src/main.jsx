@@ -3,17 +3,20 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom/dist'
 
 
 import App from './App.jsx'
-// import Login from './pages/Login';
-// import Error from './pages/Error';
-// // import FrontDesk from './pages/FrontDesk';
-// // import Admission from './pages/Admission';
-// // import Schedule from './pages/Schedule';
-// // import Client from './pages/Client';
+import Login from './pages/Login';
+import Error from './pages/Error';
+// import FrontDesk from './pages/FrontDesk';
+// import Admission from './pages/Admission';
+// import Schedule from './pages/Schedule';
+// import Client from './pages/Client';
 import Payers from './pages/Payers.jsx';
 // import PayerAdministration from "./pages/PayerAdministration"
 // import ActivtyAdministration from "./pages/ActivityAdministration"
-// import ProgramAdministration from "./pages/ProgramAdministration"
+import ProgramAdministration from "./pages/ProgramAdministration"
 // import EmployeeAdministration from "./pages/EmployeeAdministration"
+import AddPayer from "./pages/AddPayer"
+import AddProgram from "./pages/AddProgram"
+import AddActivity from "./pages/AddActivity.jsx"
 
 
 const router = createBrowserRouter([
@@ -26,9 +29,9 @@ const router = createBrowserRouter([
         index: true,
         element: <Login />
       },
-      // // {
-      // //   path: '/FrontDesk',
-      // //   element: <FrontDesk />
+      //  {
+      //    path: '/FrontDesk',
+      //    element: <FrontDesk />
       // },
       // {
       //   path: '/Admission',
@@ -41,28 +44,39 @@ const router = createBrowserRouter([
       // {
       //   path: '/Client',
       //   element: <Client />
-      // // },
-      // {
-      //   path: '/Payers',
-      //   element: <Payers />
       // },
-      // // {
-      // //   path:'/PayerAdministration',
-      // //   element: <PayerAdministration />
-      // // },
-      // // {
-      // //   path:'/ActivityAdministration',
-      // //   element: <ActivityAdministration />
-      // // },
+      {
+        path: '/Payers',
+        element: <Payers />
+      },
       // {
-      //   path:'/ProgramAdministration',
-      //   element: <ProgramAdministration />
+      //   path:'/PayerAdministration',
+      //   element: <PayerAdministration />
       // },
+      // {
+      //   path:'/ActivityAdministration',
+      //   element: <ActivityAdministration />
+      // },
+      {
+        path:'/ProgramAdministration',
+        element: <ProgramAdministration />
+      },
       // {
       //   path:'/EmployeeAdministration',
       //   element: <EmployeeAdministration />
       // },
-
+      {
+        path:'/AddPayer',
+        element: <AddPayer />
+      },
+      {
+        path:'/AddProgram',
+        element: <AddProgram />
+      },
+      {
+        path:'/AddActivity',
+        element: <AddActivity />
+      },
     ]
   }
 ])
