@@ -42,24 +42,30 @@ export default function UpdatePayerForm() {
 
 
     return (
+        <div className = "add-new">
+        <h2 className="card-header">Update Payer Form</h2>
         <form onSubmit={handleFormSubmit}>
             <input 
+                className="form-input"
                 type="text"
                 name="name"
                 placeholder={payerData.name}
                 value={formState.name}
                 onChange={handleChange}/>
             <input type="text"
+                className="form-input"
                 name="beginDate"
                 placeholder={payerData.beginDate}
                 value={formState.beginDate}
                 onChange={handleChange} />
             <input type="text"
+                className="form-input"
                 name="endDate"
                 placeholder={payerData.endDate}
                 onChange={handleChange} />
-            <button type="submit">Submit Changes</button>
+            <button className="addbtn" type="submit">Submit Changes</button>
         </form>
+        </div>
     );
 
 };

@@ -18,21 +18,22 @@ export default function PayerTable({payers}) {
 
 
   return (
-    <tbody>
+    <>
+    <tbody className="tbody">
       <tr>
         <th></th>
-        <th>Begin Date:</th>
-        <th>End Date:</th>
-        <th>Name:</th>
-        <th>Electronic Id:</th>
-        <th></th>
+        <th className="th titles">Begin Date:</th>
+        <th className="th titles">End Date:</th>
+        <th className="th titles">Name:</th>
+        <th className="th titles">Electronic Id:</th>
+        <th className="th titles"></th>
       </tr>
       {payers &&
         payers.map((payer) => (
           <tr key={payer._id}>
-            <td>
-                <button>
-               <Link
+            <td className="th">
+                <button className="tablebtn">
+               <Link style = {{textDecoration:"none", color:"black"}}
                     className="btn btn-primary btn-block btn-squared"
                     to={`/Payer/${payer._id}`}
                 >
@@ -40,25 +41,26 @@ export default function PayerTable({payers}) {
                 </Link>
                 </button>
             </td>
-            <td>{payer.beginDate}</td>
-            <td>{payer.endDate}</td>
-            <td>{payer.name}</td>
-            <td>{payer.electronic_id}</td>
-            <td>
-              <button onClick={()=>removePayer({variables:{id:payer._id}})}>
+            <td className="th td">{payer.beginDate}</td>
+            <td className="th td">{payer.endDate}</td>
+            <td className="th td"> {payer.name}</td>
+            <td className="th td">{payer.electronic_id}</td>
+            <td className="th">
+              <button className="tablebtn" onClick={()=>removePayer({variables:{id:payer._id}})}>
                 Delete
               </button>
             </td>
 
           </tr>
         ))}
-         <button>
-                <Link
+         <button className="tablebtn addbtn">
+                <Link style = {{textDecoration:"none", color:"black"}}
                 to="/AddPayer"
                 className={currentPage === '/AddPayer' ? 'nav-link active' : 'nav-link'}>
                   Add
                 </Link>
               </button>
     </tbody>
+    </>
   );
 }

@@ -41,29 +41,36 @@ export default function UpdateProgramForm() {
 
 
     return (
+        <div className = "add-new">
+        <h2 className="card-header">Update Payer Form</h2>
         <form onSubmit={handleFormSubmit}>
             <input 
+                className="form-input"
                 type="text"
                 name="name"
                 placeholder={programData.name}
                 value={formState.name}
                 onChange={handleChange}/>
             <input type="text"
+                className="form-input"
                 name="electronic_id"
                 placeholder={programData.electronic_id}
                 value={formState.electronic_id}
                 onChange={handleChange} />
             <input type="text"
+                className="form-input"
                 name="beginDate"
                 placeholder={programData.beginDate}
                 value={formState.beginDate}
                 onChange={handleChange} />
             <input type="text"
+                className="form-input"
                 name="endDate"
                 placeholder={programData.endDate}
                 onChange={handleChange} />
-            <button type="submit">Submit Changes</button>
+            <button className="addbtn" type="submit">Submit Changes</button>
         </form>
+        </div>
     );
 
 };

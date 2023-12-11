@@ -1,1 +1,106 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.navbar {
+    overflow: hidden;
+    background-color: #83bad6;
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 100%;
+    /* Full width */
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Anton', sans-serif;
+   
+    z-index:1;
+}
+.navbar h1 {
+    font-size:3.5vw;
+      background: var(--titles);
+      border-radius:10px 10px 10px 10px;
+      padding: 0.5vw;
+      margin-left: 20px;
+      float: left;
+  }
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    /* font-family: 'Anton', sans-serif; */
+    z-index:1;
+    list-style-type: none;
+  }
+  .dropdown-item {
+    list-style-type:none;
+  }
 
+  .nav-item {
+    font-size: 20px;
+    padding:0 10px;
+  }
+  
+  .nav-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  .main{
+    text-align: center;
+  }
+  .card-header{
+    padding: 10px;
+  }
+  .table{
+    display: flex;
+    justify-content: center; 
+  }
+
+  .th{
+    padding: 5px;
+  }
+  .td {
+    background-color: aliceblue;
+    border: black 1px solid;
+  }
+  .titles{
+   padding-top:10px ;
+  }
+  .tablebtn{
+    margin: 5px;
+  }
+  .addbtn{
+    margin-top: 20px;
+  }
+  .add-new{
+   text-align: center;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-input {
+    margin: 10px;
+    
+  }
+  
+  .footer {
+    height: 10vh;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #83bad6;
+    color: black;
+    justify-content: center;
+    padding-left:2vw; 
+  }
+
+  

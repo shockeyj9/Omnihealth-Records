@@ -18,20 +18,21 @@ export default function ProgramTable({programs}) {
 
 
   return (
-    <tbody>
+    <>
+    <tbody className="tbody">
       <tr>
         <th></th>
-        <th>Begin Date:</th>
-        <th>End Date:</th>
-        <th>Name:</th>
+        <th className="th titles">Begin Date:</th>
+        <th className="th titles">End Date:</th>
+        <th className="th titles">Name:</th>
         <th></th>
       </tr>
       {programs &&
         programs.map((program) => (
           <tr key={program._id}>
-            <td>
-                <button>
-               <Link
+            <td className="th">
+                <button className="tablebtn">
+               <Link style = {{textDecoration:"none", color:"black"}}
                     className="btn btn-primary btn-block btn-squared"
                     to={`/Program/${program._id}`}
                 >
@@ -39,25 +40,25 @@ export default function ProgramTable({programs}) {
                 </Link>
                 </button>
             </td>
-            <td>{program.beginDate}</td>
-            <td>{program.endDate}</td>
-            <td>{program.name}</td>
-            <td>{program.electronic_id}</td>
-            <td>
-              <button onClick={()=>removeProgram({variables:{id:program._id}})}>
+            <td className="th td">{program.beginDate}</td>
+            <td className="th td">{program.endDate}</td>
+            <td className="th td">{program.name}</td>
+            <td className="th">
+              <button className="tablebtn" onClick={()=>removeProgram({variables:{id:program._id}})}>
                 Delete
               </button>
             </td>
-
           </tr>
         ))}
-         <button>
-                <Link
-                to="/AddProgram"
-                className={currentPage === '/AddProgram' ? 'nav-link active' : 'nav-link'}>
-                  Add
-                </Link>
-              </button>
+          <button className="tablebtn addbtn">
+     <Link style = {{textDecoration:"none", color:"black"}}
+     to="/AddProgram"
+     className={currentPage === '/AddProgram' ? 'nav-link active' : 'nav-link'}>
+       Add
+     </Link>
+   </button>
     </tbody>
+   
+   </>
   );
 }
