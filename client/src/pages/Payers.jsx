@@ -25,13 +25,13 @@ const Payers = () => {
              <div>Loading...</div>
           ): (
 
-          <table className="table">
+          
 
           <PayerTable 
           payers={payersData}
            />
 
-          </table>
+          
           )}
         </div>
       </div>

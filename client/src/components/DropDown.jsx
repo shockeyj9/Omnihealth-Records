@@ -6,8 +6,8 @@ const DropdownMenu = () => {
     const currentPage = useLocation().pathname;
 
     return (
-        <div className="dropdown-menu">
-            <ul>
+        <div>
+            <ul className="dropdown-menu">
                 <li className="dropdown-item">
                     <Link style = {{textDecoration:"none", color:"black"}}
                         to="/Payers"

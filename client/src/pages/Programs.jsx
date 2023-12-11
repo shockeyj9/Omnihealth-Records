@@ -25,13 +25,13 @@ const Programs = () => {
              <div>Loading...</div>
           ): (
 
-          <table className="table">
+          
 
           <ProgramTable  
           programs={programsData}
            />
 
-          </table>
+         
           )}
         </div>
       </div>
