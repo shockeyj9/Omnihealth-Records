@@ -46,6 +46,7 @@ export default function PayerTable({payers}) {
                 Delete
               </button>
             </td>
+
           </tr>
         ))}
     </tbody>

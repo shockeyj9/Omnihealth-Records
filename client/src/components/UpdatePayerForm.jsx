@@ -14,11 +14,13 @@ export default function UpdatePayerForm() {
     const [updatePayer, { errors }] = useMutation(UPDATE_PAYER);
 
     const [formState, setformState] = useState(
+
   {     id: payerData._id,
        name: payerData.name,
        electronic_id: payerData.electronic_id,
        beginDate: payerData.beginDate,
        endDate: payerData.endDate,}
+
     );
 
 
