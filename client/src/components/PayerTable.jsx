@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { usePayerContext } from '../utils/contexts/PayerContext';
 import { DELETE_PAYER } from "../graphql/mutations/payer";
 import { QUERY_PAYER } from "../graphql/queries/payer";
 import { useMutation } from "@apollo/client";
 
 export default function PayerTable({payers}) {
+
+  const currentPage = useLocation().pathname;
+
   const [removePayer, { errors }] = useMutation(
     DELETE_PAYER,    
     {refetchQueries: [
@@ -49,6 +52,13 @@ export default function PayerTable({payers}) {
 
           </tr>
         ))}
+         <button>
+                <Link
+                to="/AddPayer"
+                className={currentPage === '/AddPayer' ? 'nav-link active' : 'nav-link'}>
+                  Add
+                </Link>
+              </button>
     </tbody>
   );
 }

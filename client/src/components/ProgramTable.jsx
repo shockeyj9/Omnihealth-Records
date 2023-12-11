@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useProgramContext } from '../utils/contexts/ProgramContext';
 import { DELETE_PROGRAM } from "../graphql/mutations/program";
 import { QUERY_PROGRAM } from "../graphql/queries/program";
 import { useMutation } from "@apollo/client";
 
 export default function ProgramTable({programs}) {
+
+  const currentPage = useLocation().pathname;
+
   const [removeProgram, { errors }] = useMutation(
     DELETE_PROGRAM,    
     {refetchQueries: [
@@ -48,6 +51,13 @@ export default function ProgramTable({programs}) {
 
           </tr>
         ))}
+         <button>
+                <Link
+                to="/AddProgram"
+                className={currentPage === '/AddProgram' ? 'nav-link active' : 'nav-link'}>
+                  Add
+                </Link>
+              </button>
     </tbody>
   );
 }
