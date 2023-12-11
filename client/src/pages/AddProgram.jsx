@@ -21,7 +21,7 @@ const AddProgram = () => {
                 variables: { ...formState },
             });
 
-            window.location.reload();
+            window.location.href = 'http://localhost:3000/Programs';
         } catch (err) {
             console.error(err);
         }

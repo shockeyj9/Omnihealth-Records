@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-
-import { ADD_PAYER } from '../graphql/mutations/payer'
+import { ADD_PAYER } from '../graphql/mutations/payer';
 
 const AddPayer = (payer) => {
 
@@ -22,7 +21,7 @@ const AddPayer = (payer) => {
                 variables: { ...formState },
             });
 
-            window.location.reload();
+            window.location.href = 'http://localhost:3000/Payers';
         } catch (err) {
             console.error(err);
         }
@@ -80,7 +79,6 @@ const AddPayer = (payer) => {
                     value={formState.electronicId}
                     onChange={handleChange}
                 />
-               
                 <button
                     className="btn btn-block btn-primary"
                     style={{ cursor: 'pointer' }}
