@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useProgramContext } from '../utils/contexts/programContext';
+import { useProgramContext } from '../utils/contexts/ProgramContext';
 import { DELETE_PROGRAM } from "../graphql/mutations/program";
 import { QUERY_PROGRAM } from "../graphql/queries/program";
 import { useMutation } from "@apollo/client";
