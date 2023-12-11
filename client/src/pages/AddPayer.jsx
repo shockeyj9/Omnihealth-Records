@@ -3,13 +3,13 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_PAYER } from '../graphql/mutations/payer'
 
-const AddPayer = () => {
+const AddPayer = (payer) => {
 
     const [formState, setFormState] = useState({
         beginDate: '',
         endDate: '',
         name: '',
-        electronic_id: '',
+        electronicId: payer.electronic_id,
     });
     const [addPayer, { error, data }] = useMutation(ADD_PAYER);
 
@@ -31,7 +31,7 @@ const AddPayer = () => {
         beginDate: '',
         endDate: '',
         name: '',
-        electronic_id: '',
+        electronicId: '',
       });
     };
 
@@ -77,7 +77,7 @@ const AddPayer = () => {
                     placeholder="Electronic Payer ID"
                     name="electronic_id"
                     type="text"
-                    value={formState.electronic_id}
+                    value={formState.electronicId}
                     onChange={handleChange}
                 />
                
