@@ -13,12 +13,13 @@ import Payers from './pages/Payers.jsx';
 
 // import PayerAdministration from "./pages/PayerAdministration"
 // import ActivtyAdministration from "./pages/ActivityAdministration"
-import ProgramAdministration from "./pages/ProgramAdministration"
+import Programs from "./pages/Programs"
 // import EmployeeAdministration from "./pages/EmployeeAdministration"
 import AddPayer from "./pages/AddPayer"
 import AddProgram from "./pages/AddProgram"
 import AddActivity from "./pages/AddActivity.jsx"
 import SinglePayer from './pages/SinglePayer.jsx';
+import SingleProgram from './pages/SingleProgram.jsx';
 // drop downs
 
 
@@ -57,8 +58,8 @@ const router = createBrowserRouter([
       //   element: <ActivityAdministration />
       // },
       {
-        path:'/ProgramAdministration',
-        element: <ProgramAdministration />
+        path:'/Programs',
+        element: <Programs />
       },
       // {
       //   path:'/EmployeeAdministration',
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
       path: '/Payer/:payerId',
       element: <SinglePayer />,
     },
+    {
+      path: '/Program/:programId',
+      element: <SingleProgram />,
+    },
     ]
   }
 ])
@@ -92,3 +97,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
 )
+
+
+
