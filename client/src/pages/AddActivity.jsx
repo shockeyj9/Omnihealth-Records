@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import PayerDropdown from '../components/PayerDropDown';
+import ProgramDropdown from '../components/ProgramDropDown';
 
 import { ADD_ACTIVITY } from '../graphql/mutations/activity'
 import mongoose from 'mongoose'
@@ -11,9 +13,8 @@ const AddActivity = () => {
         name: '',
         procedureCode: {code: '', fee: ''},
         document: {name: ''},
-        programs: {_id:  new mongoose.Types.ObjectId(1)},
-        payers: {_id:  new mongoose.Types.ObjectId(2)},
     });
+    
     const [addActivity, { error, data }] = useMutation(ADD_ACTIVITY);
 
     const handleFormSubmit = async (event) => {
@@ -25,7 +26,7 @@ const AddActivity = () => {
                 variables: { ...formState },
             });
 
-            window.location.reload();
+            window.location.href = 'http://localhost:3000/Activity';
         } catch (err) {
             console.error(err);
         }
@@ -36,9 +37,6 @@ const AddActivity = () => {
         name: '',
         procedureCode: {code: '', fee: ''},
         document: {name: ''},
-        programs: {_id:  new mongoose.Types.ObjectId(1)},
-        payers: {_id:  new mongoose.Types.ObjectId(2)},
-        // id has to be a valid mongodb object id, do we need to pull the programs and payers (dropdown?) 
       });
     };
 
@@ -75,7 +73,7 @@ const AddActivity = () => {
     console.log(formState)
     return (
         <div>
-            <h1>New Activity Entry</h1>
+            <h2 className="card-header">New Activity Entry</h2>
             <form onSubmit={handleFormSubmit}>
                 <input
                     className="form-input"
@@ -125,7 +123,10 @@ const AddActivity = () => {
                     value={formState.document.name}
                     onChange={handleDocumentChange}
                 />
-                {/* add programs and payers as either a drop down or an input */}
+                <div style = {{display: "flex"}}>
+                <PayerDropdown />
+                <ProgramDropdown />
+                </div>
                 <button
                     className="btn btn-block btn-primary"
                     style={{ cursor: 'pointer' }}

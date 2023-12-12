@@ -1,7 +1,7 @@
 export default function Footer(){
 
     return (
-        <footer>
+        <footer className="footer">
             <div></div>
             <h3>Made by Jessie Shockey & Anna Pincus©</h3>
         </footer>

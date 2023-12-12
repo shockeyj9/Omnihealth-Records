@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { ADD_PAYER } from '../graphql/mutations/payer';
 
-import { ADD_PAYER } from '../graphql/mutations/payer'
-
-const AddPayer = () => {
+const AddPayer = (payer) => {
 
     const [formState, setFormState] = useState({
         beginDate: '',
         endDate: '',
         name: '',
-        electronic_id: '',
+        electronicId: payer.electronic_id,
     });
     const [addPayer, { error, data }] = useMutation(ADD_PAYER);
 
@@ -22,7 +21,7 @@ const AddPayer = () => {
                 variables: { ...formState },
             });
 
-            window.location.reload();
+            window.location.href = 'http://localhost:3000/Payers';
         } catch (err) {
             console.error(err);
         }
@@ -31,7 +30,7 @@ const AddPayer = () => {
         beginDate: '',
         endDate: '',
         name: '',
-        electronic_id: '',
+        electronicId: '',
       });
     };
 
@@ -45,8 +44,8 @@ const AddPayer = () => {
 
     }
     return (
-        <div>
-            <h1>New Payer Plan Entry</h1>
+        <div className = "add-new">
+            <h2 className="card-header">New Payer Plan Entry</h2>
             <form onSubmit={handleFormSubmit}>
                 <input
                     className="form-input"
@@ -77,12 +76,11 @@ const AddPayer = () => {
                     placeholder="Electronic Payer ID"
                     name="electronic_id"
                     type="text"
-                    value={formState.electronic_id}
+                    value={formState.electronicId}
                     onChange={handleChange}
                 />
-               
                 <button
-                    className="btn btn-block btn-primary"
+                    className="addbtn btn-block btn-primary"
                     style={{ cursor: 'pointer' }}
                     type="submit"
                 >

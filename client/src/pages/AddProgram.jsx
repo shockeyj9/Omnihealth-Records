@@ -21,7 +21,7 @@ const AddProgram = () => {
                 variables: { ...formState },
             });
 
-            window.location.reload();
+            window.location.href = 'http://localhost:3000/Programs';
         } catch (err) {
             console.error(err);
         }
@@ -43,8 +43,8 @@ const AddProgram = () => {
 
     }
     return (
-        <div>
-            <h1>New Program Entry</h1>
+        <div  className = "add-new">
+            <h2 className="card-header">New Program Entry</h2>
             <form onSubmit={handleFormSubmit}>
                 <input
                     className="form-input"
@@ -72,7 +72,7 @@ const AddProgram = () => {
                 />
                
                 <button
-                    className="btn btn-block btn-primary"
+                    className="addbtn btn-block btn-primary"
                     style={{ cursor: 'pointer' }}
                     type="submit"
                 >

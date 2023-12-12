@@ -1,19 +1,19 @@
 import { Link, useLocation } from "react-router-dom";
-import { usePayerContext } from '../utils/contexts/PayerContext';
-import { DELETE_PAYER } from "../graphql/mutations/payer";
-import { QUERY_PAYER } from "../graphql/queries/payer";
+import { useProgramContext } from '../utils/contexts/ProgramContext';
+import { DELETE_PROGRAM } from "../graphql/mutations/program";
+import { QUERY_PROGRAM } from "../graphql/queries/program";
 import { useMutation } from "@apollo/client";
 
-export default function PayerTable({ payers }) {
+export default function ProgramTable({ programs }) {
 
   const currentPage = useLocation().pathname;
 
-  const [removePayer, { errors }] = useMutation(
-    DELETE_PAYER,
+  const [removeProgram, { errors }] = useMutation(
+    DELETE_PROGRAM,
     {
       refetchQueries: [
-        QUERY_PAYER,
-        'payers'
+        QUERY_PROGRAM,
+        'programs'
       ]
     }
   );
@@ -28,38 +28,35 @@ export default function PayerTable({ payers }) {
             <th className="th titles">Begin Date:</th>
             <th className="th titles">End Date:</th>
             <th className="th titles">Name:</th>
-            <th className="th titles">Electronic Id:</th>
-            <th className="th titles"></th>
+            <th></th>
           </tr>
-          {payers &&
-            payers.map((payer) => (
-              <tr key={payer._id}>
+          {programs &&
+            programs.map((program) => (
+              <tr key={program._id}>
                 <td className="th">
                   <button className="tablebtn">
                     <Link style={{ textDecoration: "none", color: "black" }}
                       className="btn btn-primary btn-block btn-squared"
-                      to={`/Payer/${payer._id}`}
+                      to={`/Program/${program._id}`}
                     >
                       Edit
                     </Link>
                   </button>
                 </td>
-                <td className="th td">{payer.beginDate}</td>
-                <td className="th td">{payer.endDate}</td>
-                <td className="th td"> {payer.name}</td>
-                <td className="th td">{payer.electronic_id}</td>
+                <td className="th td">{program.beginDate}</td>
+                <td className="th td">{program.endDate}</td>
+                <td className="th td">{program.name}</td>
                 <td className="th">
-                  <button className="tablebtn" onClick={() => removePayer({ variables: { id: payer._id } })}>
+                  <button className="tablebtn" onClick={() => removeProgram({ variables: { id: program._id } })}>
                     Delete
                   </button>
                 </td>
-
               </tr>
             ))}
           <button className="tablebtn addbtn">
             <Link style={{ textDecoration: "none", color: "black" }}
-              to="/AddPayer"
-              className={currentPage === '/AddPayer' ? 'nav-link active' : 'nav-link'}>
+              to="/AddProgram"
+              className={currentPage === '/AddProgram' ? 'nav-link active' : 'nav-link'}>
               Add
             </Link>
           </button>
