@@ -12,13 +12,14 @@ import Error from './pages/Error';
 import Payers from './pages/Payers.jsx';
 
 // import PayerAdministration from "./pages/PayerAdministration"
-// import ActivtyAdministration from "./pages/ActivityAdministration"
+import ActivtyAdministration from "./pages/ActivityAdministration"
 import ProgramAdministration from "./pages/ProgramAdministration"
 // import EmployeeAdministration from "./pages/EmployeeAdministration"
 import AddPayer from "./pages/AddPayer"
 import AddProgram from "./pages/AddProgram"
 import AddActivity from "./pages/AddActivity.jsx"
 import SinglePayer from './pages/SinglePayer.jsx';
+import SingleActivity from './pages/SingleActivity.jsx';
 // drop downs
 
 
@@ -52,10 +53,10 @@ const router = createBrowserRouter([
       //   path:'/PayerAdministration',
       //   element: <PayerAdministration />
       // },
-      // {
-      //   path:'/ActivityAdministration',
-      //   element: <ActivityAdministration />
-      // },
+       {
+         path:'/ActivityAdministration',
+         element: <ActivtyAdministration />
+       },
       {
         path:'/ProgramAdministration',
         element: <ProgramAdministration />
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
     {
       path: '/Payer/:payerId',
       element: <SinglePayer />,
+    },
+    {
+      path: '/Activity/:activityId',
+      element: <SingleActivity />,
     },
     ]
   }
