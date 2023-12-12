@@ -42,7 +42,7 @@ export default function UpdateProgramForm() {
 
     return (
         <div className = "add-new">
-        <h2 className="card-header">Update Payer Form</h2>
+        <h2 className="card-header">Update Program Form</h2>
         <form onSubmit={handleFormSubmit}>
             <input 
                 className="form-input"

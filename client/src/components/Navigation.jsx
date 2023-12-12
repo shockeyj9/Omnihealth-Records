@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-// import { SearchBar } from './SearchBar';
+import { SearchBar } from './SearchBar';
 import DropdownMenu from './DropDown';
 import { useState } from 'react';
 
@@ -70,7 +70,7 @@ function NavTabs() {
                         </div>
                     </li>
                     <li>
-                        {/* < SearchBar /> */}
+                        < SearchBar />
                     </li>
                     <li className="nav-item">
                         <Link style={{ textDecoration: "none", color: "black" }}

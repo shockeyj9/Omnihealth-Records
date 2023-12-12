@@ -56,6 +56,7 @@ body{
 
   .main{
     text-align: center;
+    padding-bottom: 15vh;
   }
   .card-header{
     padding: 10px;
@@ -71,6 +72,7 @@ body{
   .td {
     background-color: aliceblue;
     border: black 1px solid;
+    font-size: 12px;
   }
   .titles{
    padding-top:10px ;
@@ -80,7 +82,7 @@ body{
   }
   .addbtn{
     margin-top: 20px;
-    max-width: 50px;
+    max-width: 200px;
   }
   .add-new{
    text-align: center;
@@ -97,9 +99,9 @@ body{
   }
   
   .footer {
-    height: 10vh;
+    height: 8vh;
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #83bad6;
@@ -148,4 +150,26 @@ body{
     flex-wrap: wrap;
     align-items: center;
   }
+  .activitydropdowns {
+    margin:10px 0;
+  }
+
+  .column {
+    float: left;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
   
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  
+  }
+ .row {
+  width: 80%;
+ }
+

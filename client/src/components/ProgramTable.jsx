@@ -53,15 +53,15 @@ export default function ProgramTable({ programs }) {
                 </td>
               </tr>
             ))}
-          <button className="tablebtn addbtn">
+        </tbody>
+      </table>
+      <button className="tablebtn addbtn">
             <Link style={{ textDecoration: "none", color: "black" }}
               to="/AddProgram"
               className={currentPage === '/AddProgram' ? 'nav-link active' : 'nav-link'}>
               Add
             </Link>
           </button>
-        </tbody>
-      </table>
     </div>
   );
 }

@@ -14,12 +14,14 @@ import Payers from './pages/Payers.jsx';
 // import PayerAdministration from "./pages/PayerAdministration"
 // import ActivtyAdministration from "./pages/ActivityAdministration"
 import Programs from "./pages/Programs"
-// import EmployeeAdministration from "./pages/EmployeeAdministration"
-import AddPayer from "./pages/AddPayer"
-import AddProgram from "./pages/AddProgram"
+import EmployeeAdministration from "./pages/EmployeeAdministration"
+import AddPayer from "./pages/AddPayer";
+import AddProgram from "./pages/AddProgram";
 import AddActivity from "./pages/AddActivity.jsx"
 import SinglePayer from './pages/SinglePayer.jsx';
 import SingleProgram from './pages/SingleProgram.jsx';
+import SingleEmployee from "./pages/SingleEmployee.jsx";
+import AddEmployee from "./pages/AddEmployee.jsx"
 // drop downs
 
 
@@ -61,10 +63,10 @@ const router = createBrowserRouter([
         path:'/Programs',
         element: <Programs />
       },
-      // {
-      //   path:'/EmployeeAdministration',
-      //   element: <EmployeeAdministration />
-      // },
+      {
+        path:'/EmployeeAdministration',
+        element: <EmployeeAdministration />
+      },
       {
         path:'/AddPayer',
         element: <AddPayer />
@@ -77,10 +79,18 @@ const router = createBrowserRouter([
         path:'/AddActivity',
         element: <AddActivity />
       },
+      {
+        path:'/AddEmployee',
+        element: <AddEmployee />
+      },
     //  need administration sublinks/dropdowns
     {
       path:'/Payers',
       element: <Payers />
+    },
+    {
+      path: '/Employee/:employeeId',
+      element: <SingleEmployee />,
     },
     {
       path: '/Payer/:payerId',
