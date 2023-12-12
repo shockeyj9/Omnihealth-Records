@@ -44,8 +44,8 @@ const AddPayer = (payer) => {
 
     }
     return (
-        <div>
-            <h1>New Payer Plan Entry</h1>
+        <div className = "add-new">
+            <h2 className="card-header">New Payer Plan Entry</h2>
             <form onSubmit={handleFormSubmit}>
                 <input
                     className="form-input"
@@ -80,7 +80,7 @@ const AddPayer = (payer) => {
                     onChange={handleChange}
                 />
                 <button
-                    className="btn btn-block btn-primary"
+                    className="addbtn btn-block btn-primary"
                     style={{ cursor: 'pointer' }}
                     type="submit"
                 >

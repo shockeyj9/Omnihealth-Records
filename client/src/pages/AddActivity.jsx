@@ -73,7 +73,7 @@ const AddActivity = () => {
     console.log(formState)
     return (
         <div>
-            <h1>New Activity Entry</h1>
+            <h2 className="card-header">New Activity Entry</h2>
             <form onSubmit={handleFormSubmit}>
                 <input
                     className="form-input"

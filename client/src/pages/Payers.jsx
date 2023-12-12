@@ -16,22 +16,22 @@ const Payers = () => {
 
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className="main flex-row justify-center mb-4">
       <div className="col-12 col-lg-10"> 
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Active Payers</h4>
+          <h2 className="card-header bg-dark text-light p-2">Active Payers</h2>
 
           {loading? (
              <div>Loading...</div>
           ): (
 
-          <table>
+          
 
           <PayerTable 
           payers={payersData}
            />
 
-          </table>
+          
           )}
         </div>
       </div>
