@@ -24,8 +24,8 @@ scalar DateTime
         document: [Document]
         beginDate: DateTime!
         endDate: DateTime
-        programs: [ProgramRef]
-        payers: [PayerRef]
+        programs: [Program]
+        payers: [Payer]
     }
     input ProcedureInput{
         code: String

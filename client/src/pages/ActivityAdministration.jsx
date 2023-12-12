@@ -10,27 +10,25 @@ const Activities = ()=>{
 
     return (
 
-        <div className="col-12 col-lg-10"> 
-          <div className="card">
-            <h4 className="card-header bg-dark text-light p-2">Activities</h4>
+      <main className="main flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10"> 
+        <div className="card">
+          <h2 className="card-header bg-dark text-light p-2">Activities</h2>
   
             {loading? (
                <div>Loading...</div>
             ): (
-  
-            <table>
-  
+
             <ActivityTable 
             activities={activityData}
              />
-  
-            </table>
+
             )}
           </div>
           <div>
           <button>
-                 <Link
-                      className="btn btn-primary btn-block btn-squared"
+                 <Link className="tablebtn addbtn"
+                      style={{ textDecoration: "none", color: "black" }}
                       to={`/AddActivity`}
                   >
                       Add New Activity
@@ -38,7 +36,7 @@ const Activities = ()=>{
                   </button>
           </div>
         </div>
-  
+      </main>
     );
 }
 
