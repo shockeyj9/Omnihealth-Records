@@ -45,133 +45,117 @@ export default function UpdateEmployeeForm({ employee }) {
     //     })
     //     }; 
     const handleNameChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, name: event.target.value }
+        setformState({
+                ...formState,
+                demographics: { ...formState.demographics, name: event.target.value }
             }
-        })
+        )
     }
     const handleBirthChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, dateOfBirth: event.target.value }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, dateOfBirth: event.target.value }
             }
-        })
+        )
     }
     const handleSexChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, sex: event.target.value }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, sex: event.target.value }
             }
-        })
+        )
     }
     const handleGenderChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, gender: event.target.value }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, gender: event.target.value }
             }
-        })
+        )
     }
     const handleRaceChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, race: event.target.value }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, race: event.target.value }
             }
-        })
+        )
     }
     const handleEthnicityChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, ethnicity: event.target.value }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, ethnicity: event.target.value }
             }
-        })
+        )
     }
     const handleRoleChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, role: event.target.value }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, role: event.target.value }
             }
-        })
+        )
     }
     const handlePhoneChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, contactInfo: { ...prevState.demographics.contactInfo, phone: event.target.value } }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, contactInfo: { ...formState.demographics.contactInfo, phone: event.target.value } }
             }
-        })
+        )
     }
     const handleEmailChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, contactInfo: { ...prevState.demographics.contactInfo, email: event.target.value } }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, contactInfo: { ...formState.demographics.contactInfo, email: event.target.value } }
             }
-        })
+        )
     }
     const handleMailingChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, addresses: { ...prevState.demographics.addresses, mailing: event.target.value } }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, addresses: { ...formState.demographics.addresses, mailing: event.target.value } }
             }
-        })
+        )
     }
     const handlePhysicalChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, addresses: { ...prevState.demographics.addresses, physical: event.target.value } }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, addresses: { ...formState.demographics.addresses, physical: event.target.value } }
             }
-        })
+        )
     }
     const handleStartDateChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, addresses: { ...prevState.demographics.addresses, startDate: event.target.value } }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, addresses: { ...formState.demographics.addresses, startDate: event.target.value } }
             }
-        })
+        )
     }
     const handleEndDateChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                demographics: { ...prevState.demographics, addresses: { ...prevState.demographics.addresses, endDate: event.target.value } }
+        setformState({
+            ...formState,
+                demographics: { ...formState.demographics, addresses: { ...formState.demographics.addresses, endDate: event.target.value } }
             }
 
-        })
+        )
     }
     const handleSupervisorIdChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                supervisors: { ...prevState.supervisors, supervisor_id: event.target.value }
+        setformState({
+            ...formState,
+                supervisors: { ...formState.supervisors, supervisor_id: event.target.value }
             }
-        })
+        )
     }
     const handleSupervisorStartDateChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                supervisors: { ...prevState.supervisors, startDate: event.target.value }
+        setformState({
+            ...formState,
+                supervisors: { ...formState.supervisors, startDate: event.target.value }
             }
-        })
+        )
     }
     const handleSupervisorEndDateChange = (event) => {
-        setformState((prevState) => {
-            return {
-                ...prevState,
-                supervisors: { ...prevState.supervisors, endDate: event.target.value }
+        setformState({
+            ...formState,
+                supervisors: { ...formState.supervisors, endDate: event.target.value }
             }
-        })
+        )
     }
 
 
@@ -205,7 +189,7 @@ export default function UpdateEmployeeForm({ employee }) {
                             placeholder={employee.demographics.dateOfBirth}
                             value={formState.beginDate}
                             onChange={handleBirthChange} />
-                        <label name="name">Sexe:</label>
+                        <label name="name">Sex:</label>
                         <input type="text"
                             className="form-input"
                             name="sex"
@@ -280,14 +264,14 @@ export default function UpdateEmployeeForm({ employee }) {
                         name="startDate"
                         value={formState.startDate}
                         placeholder={employee.demographics.addresses[0].startDate}
-                        onChange={handleStartDateChange} />
+                        onChange={handleSupervisorStartDateChange} />
                     <label name="name">End Date:</label>
                     <input type="text"
                         className="form-input"
                         name="endDate"
                         value={formState.endDate}
                         placeholder={employee.demographics.addresses[0].endDate}
-                        onChange={handleEndDateChange} />
+                        onChange={handleSupervisorEndDateChange} />
                 </div>
                 <div className="column">
                     <p>Supervisors:</p>
