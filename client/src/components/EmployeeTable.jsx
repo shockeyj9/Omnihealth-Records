@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEmployeeContext } from '../utils/contexts/EmployeeContext';
 import { DELETE_EMPLOYEE } from "../graphql/mutations/employee";
-import { QUERY_EMPLOYEE } from "../graphql/queries/employee";
+import { QUERY_EMPLOYEES } from "../graphql/queries/employee";
 import { useMutation } from "@apollo/client";
 
 export default function EmployeeTable({ employees }) {
@@ -12,12 +12,12 @@ export default function EmployeeTable({ employees }) {
     DELETE_EMPLOYEE,
     {
       refetchQueries: [
-        QUERY_EMPLOYEE,
+        QUERY_EMPLOYEES,
         'employees'
       ]
     }
   );
-
+console.log(employees)
 
   return (
     <div className="tablecontainer">
@@ -48,7 +48,8 @@ export default function EmployeeTable({ employees }) {
               <tr key={employee._id}>
                 <td className="th">
                   <button className="tablebtn">
-                    <Link style={{ textDecoration: "none", color: "black" }}
+                    <Link 
+                    style={{ textDecoration: "none", color: "black" }}
                       className="btn btn-primary btn-block btn-squared"
                       to={`/Employee/${employee._id}`}
                     >

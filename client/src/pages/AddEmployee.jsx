@@ -121,37 +121,37 @@ const AddEmployee = () => {
     const handlePhoneChange = (event) => {
         setFormState( (prevState) => {return {
             ...prevState,
-            demographics: { ...prevState.demographics, contactInfo: {...prevState.contactInfo, phone: event.target.value }}}
+            demographics: { ...prevState.demographics, contactInfo: {...prevState.demographics.contactInfo, phone: event.target.value }}}
         })
     }
     const handleEmailChange = (event) => {
         setFormState( (prevState) => {return {
             ...prevState,
-            demographics: { ...prevState.demographics, contactInfo: {...prevState.contactInfo, email: event.target.value }}}
+            demographics: { ...prevState.demographics, contactInfo: {...prevState.demographics.contactInfo, email: event.target.value }}}
         })
     }
     const handleMailingChange = (event) => {
         setFormState( (prevState) => {return {
             ...prevState,
-            demographics: { ...prevState.demographics, addresses: {...prevState.addresses, mailing: event.target.value }}}
+            demographics: { ...prevState.demographics, addresses: {...prevState.demographics.addresses, mailing: event.target.value }}}
         })
     }
     const handlePhysicalChange = (event) => {
         setFormState( (prevState) => {return {
             ...prevState,
-            demographics: { ...prevState.demographics, addresses: {...prevState.addresses, physical: event.target.value }}}
+            demographics: { ...prevState.demographics, addresses: {...prevState.demographics.addresses, physical: event.target.value }}}
         })
     }
     const handleStartDateChange = (event) => {
         setFormState( (prevState) => {return {
             ...prevState,
-            demographics: { ...prevState.demographics, addresses: {...prevState.addresses, startDate: event.target.value }}}
+            demographics: { ...prevState.demographics, addresses: {...prevState.demographics.addresses, startDate: event.target.value }}}
         })
     }
     const handleEndDateChange = (event) => {
         setFormState( (prevState) => {return {
             ...prevState,
-            demographics: { ...prevState.demographics, addresses: {...prevState.addresses, endDate: event.target.value }}}
+            demographics: { ...prevState.demographics, addresses: {...prevState.demographics.addresses, endDate: event.target.value }}}
 
         })
     }

@@ -1,241 +1,321 @@
-import { useEmployeeContext } from "../utils/contexts/EmployeeContext";
 import { useState } from 'react';
-import { useParams } from "react-router-dom";
-import { useQuery,useMutation } from "@apollo/client";
-import { QUERY_EMPLOYEE } from "../graphql/queries/employee";
+import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_EMPLOYEE } from "../graphql/mutations/employee";
 
 
-export default function UpdateEmployeeForm() {
-    const { employeeId } = useParams();
-    const { loading, error, data } = useQuery(QUERY_EMPLOYEE, {variables: {id: employeeId}});
-    const employeeData = data?.employee || [];
-   
+export default function UpdateEmployeeForm({ employee }) {
+
+
+    const [formState, setformState] = useState({
+        id: employee._id,
+        demographics: {
+            name: employee.demographics.name,
+            dateOfBirth: employee.demographics.dateOfBirth,
+            sex: employee.demographics.sex,
+            gender: employee.demographics.gender,
+            race: employee.demographics.race,
+            ethnicity: employee.demographics.ethnicity,
+            role: employee.demographics.role,
+            contactInfo: {
+                phone: employee.demographics.contactInfo.phone,
+                email: employee.demographics.contactInfo.email,
+            },
+            addresses: {
+                mailing: employee.demographics.addresses[0].mailing,
+                physical: employee.demographics.addresses[0].physical,
+                startDate: employee.demographics.addresses[0].startDate,
+                endDate: employee.demographics.addresses[0].endDate,
+            }
+        },
+        supervisors: {
+            supervisor_id: employee.supervisors[0].supervisor_id,
+            startDate: employee.supervisors[0].startDate,
+            endDate: employee.supervisors[0].endDate,
+        }
+    });
+
+    // set update mutation
     const [updateEmployee, { errors }] = useMutation(UPDATE_EMPLOYEE);
 
-    const [formState, setformState] = useState(
-        {
-            demographics: {
-                name: employeeData.demographics.name,
-                dateOfBirth: employeeData.demographics.dateOfBirth,
-                sex: '',
-                gender: '',
-                race: '',
-                ethnicity: '',
-                role: '',
-                contactInfo: { phone: '', email: '' }
-                ,
-                addresses: {
-                    mailing: '',
-                    physical: '',
-                    startDate: '',
-                    endDate: '',
-                }
-            },
-            supervisors: {
-                supervisor_id: new mongoose.Types.ObjectId(1),
-                startDate: '',
-                endDate: '',
-            }
-        });
 
-
+    // const handleChange = (event) => {
+    //     const { name, value } = event.target;
+    //     setformState({
+    //         ...formState, [name]:value
+    //     })
+    //     }; 
     const handleNameChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, name: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, name: event.target.value }
+            }
         })
     }
     const handleBirthChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, dateOfBirth: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, dateOfBirth: event.target.value }
+            }
         })
     }
     const handleSexChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, sex: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, sex: event.target.value }
+            }
         })
     }
     const handleGenderChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, gender: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, gender: event.target.value }
+            }
         })
     }
     const handleRaceChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, race: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, race: event.target.value }
+            }
         })
     }
     const handleEthnicityChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, ethnicity: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, ethnicity: event.target.value }
+            }
         })
     }
     const handleRoleChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, role: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, role: event.target.value }
+            }
         })
     }
     const handlePhoneChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, contactInfo: {...prevState.contactInfo, phone: event.target.value }}}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, contactInfo: { ...prevState.demographics.contactInfo, phone: event.target.value } }
+            }
         })
     }
     const handleEmailChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, contactInfo: {...prevState.contactInfo, email: event.target.value }}}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, contactInfo: { ...prevState.demographics.contactInfo, email: event.target.value } }
+            }
         })
     }
     const handleMailingChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, addresses: {...prevState.addresses, mailing: event.target.value }}}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, addresses: { ...prevState.demographics.addresses, mailing: event.target.value } }
+            }
         })
     }
     const handlePhysicalChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, addresses: {...prevState.addresses, physical: event.target.value }}}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, addresses: { ...prevState.demographics.addresses, physical: event.target.value } }
+            }
         })
     }
     const handleStartDateChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, addresses: {...prevState.addresses, startDate: event.target.value }}}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, addresses: { ...prevState.demographics.addresses, startDate: event.target.value } }
+            }
         })
     }
     const handleEndDateChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            demographics: { ...prevState.demographics, addresses: {...prevState.addresses, endDate: event.target.value }}}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                demographics: { ...prevState.demographics, addresses: { ...prevState.demographics.addresses, endDate: event.target.value } }
+            }
 
         })
     }
     const handleSupervisorIdChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            supervisors: { ...prevState.supervisors, supervisor_id: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                supervisors: { ...prevState.supervisors, supervisor_id: event.target.value }
+            }
         })
     }
     const handleSupervisorStartDateChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            supervisors: { ...prevState.supervisors, startDate: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                supervisors: { ...prevState.supervisors, startDate: event.target.value }
+            }
         })
     }
     const handleSupervisorEndDateChange = (event) => {
-        setformState( (prevState) => {return {
-            ...prevState,
-            supervisors: { ...prevState.supervisors, endDate: event.target.value }}
+        setformState((prevState) => {
+            return {
+                ...prevState,
+                supervisors: { ...prevState.supervisors, endDate: event.target.value }
+            }
         })
     }
 
-    
-    const handleFormSubmit = (event)=>{
+
+    const handleFormSubmit = (event) => {
         event.preventDefault();
         updateEmployee({
-            variables: {id: employeeData._id, ...formState}
+            variables: { id: employee._id, ...formState }
         })
-        window.location.replace('/EmployeeAdnministration')
+        window.location.replace('/EmployeeAdministration')
     }
 
     return (
-        <div className = "add-new">
-        <h2 className="card-header">Update employee Form</h2>
-        <form onSubmit={handleFormSubmit}>
-            <input 
-                className="form-input"
-                type="text"
-                name="name"
-                placeholder={employeeData.demographics.name}
-                value={formState.name}
-                onChange={handleNameChange}/>
-            <input type="text"
-                className="form-input"
-                name="dateOfBirth"
-                placeholder={employeeData.demographics.dateOfBirth}
-                value={formState.beginDate}
-                onChange={handleBirthChange} />
-            <input type="text"
-                className="form-input"
-                name="sex"
-                placeholder={employeeData.demographics.sex}
-                onChange={handleSexChange} />
-            <input type="text"
-                className="form-input"
-                name="gender"
-                placeholder={employeeData.demographics.gender}
-                onChange={handleGenderChange} />
-            <input type="text"
-                className="form-input"
-                name="race"
-                placeholder={employeeData.demographics.race}
-                onChange={handleRaceChange} />
-            <input type="text"
-                className="form-input"
-                name="ethnicity"
-                placeholder={employeeData.demographics.ethnicity}
-                onChange={handleEthnicityChange} />
-            <input type="text"
-                className="form-input"
-                name="role"
-                placeholder={employeeData.demographics.role}
-                onChange={handleRoleChange} />
-            <input type="text"
-                className="form-input"
-                name="phone"
-                placeholder={employeeData.demographics.contactInfo.phone}
-                onChange={handlePhoneChange} />
-            <input type="email"
-                className="form-input"
-                name="email"
-                placeholder={employeeData.demographics.contactInfo.email}
-                onChange={handleEmailChange} />
-            <input type="text"
-                className="form-input"
-                name="mailing"
-                placeholder={employeeData.demographics.addresses.mailing}
-                onChange={handleMailingChange} />
-            <input type="text"
-                className="form-input"
-                name="physical"
-                placeholder={employeeData.demographics.addresses.physical}
-                onChange={handlePhysicalChange} />
-            <input type="text"
-                className="form-input"
-                name="startDate"
-                placeholder={employeeData.demographics.addresses.startDate}
-                onChange={handleStartDateChange} />
-            <input type="text"
-                className="form-input"
-                name="endDate"
-                placeholder={employeeData.demographics.addresses.endDate}
-                onChange={handleEndDateChange} />
-            <input type="text"
-                className="form-input"
-                name="supervisor_id"
-                placeholder={employeeData.supervisors.supervisors_id}
-                onChange={handleSupervisorIdChange} />
-            <input type="text"
-                className="form-input"
-                name="startDate"
-                placeholder={employeeData.supervisors.startDate}
-                onChange={handleStartDateChange} />
-            <input type="text"
-                className="form-input"
-                name="endDate"
-                placeholder={employeeData.supervisors.endDate}
-                onChange={handleEndDateChange} />
-            <button className="addbtn" type="submit">Submit Changes</button>
-        </form>
+        <div className="add-new">
+            <h2 className="card-header">Update employee Form</h2>
+            <form onSubmit={handleFormSubmit}>
+                <div className="row">
+                    <div className="column">
+                        <p>Demographics:</p>
+                        <label name="name">Employee Name:</label>
+                        <input
+                            className="form-input"
+                            type="text"
+                            name="name"
+                            placeholder={employee.demographics.name}
+                            value={formState.name}
+                            onChange={handleNameChange} />
+                        <label name="name">Date of Birth:</label>
+                        <input type="text"
+                            className="form-input"
+                            name="dateOfBirth"
+                            placeholder={employee.demographics.dateOfBirth}
+                            value={formState.beginDate}
+                            onChange={handleBirthChange} />
+                        <label name="name">Sexe:</label>
+                        <input type="text"
+                            className="form-input"
+                            name="sex"
+                            value={formState.sex}
+                            placeholder={employee.demographics.sex}
+                            onChange={handleSexChange} />
+                        <label name="name">Gender:</label>
+                        <input type="text"
+                            className="form-input"
+                            name="gender"
+                            value={formState.gender}
+                            placeholder={employee.demographics.gender}
+                            onChange={handleGenderChange} />
+                        <label name="name">Race:</label>
+                        <input type="text"
+                            className="form-input"
+                            name="race"
+                            value={formState.race}
+                            placeholder={employee.demographics.race}
+                            onChange={handleRaceChange} />
+                        <label name="name">Ethnicity:</label>
+                        <input type="text"
+                            className="form-input"
+                            name="ethnicity"
+                            value={formState.ethnicity}
+                            placeholder={employee.demographics.ethnicity}
+                            onChange={handleEthnicityChange} />
+                        <label name="name">Role:</label>
+                        <input type="text"
+                            className="form-input"
+                            name="role"
+                            value={formState.role}
+                            placeholder={employee.demographics.role}
+                            onChange={handleRoleChange} />
+                    </div>
+                    <div className="column">
+                    <p>Contact Info:</p>
+                    <label name="name">Phone:</label>
+                    <input type="text"
+                        className="form-input"
+                        name="phone"
+                        value={formState.phone}
+                        placeholder={employee.demographics.contactInfo.phone}
+                        onChange={handlePhoneChange} />
+                    <label name="name">Email:</label>
+                    <input type="email"
+                        className="form-input"
+                        name="email"
+                        value={formState.email}
+                        placeholder={employee.demographics.contactInfo.email}
+                        onChange={handleEmailChange} />
+                </div>
+                <div className="column">
+                    <p>Addresses:</p>
+                    <label name="name">Mailing:</label>
+                    <input type="text"
+                        className="form-input"
+                        name="mailing"
+                        value={formState.mailing}
+                        placeholder={employee.demographics.addresses[0].mailing}
+                        onChange={handleMailingChange} />
+                    <label name="name">Physical:</label>
+                    <input type="text"
+                        className="form-input"
+                        name="physical"
+                        value={formState.physical}
+                        placeholder={employee.demographics.addresses[0].physical}
+                        onChange={handlePhysicalChange} />
+                    <label name="name">Start Date:</label>
+                    <input type="text"
+                        className="form-input"
+                        name="startDate"
+                        value={formState.startDate}
+                        placeholder={employee.demographics.addresses[0].startDate}
+                        onChange={handleStartDateChange} />
+                    <label name="name">End Date:</label>
+                    <input type="text"
+                        className="form-input"
+                        name="endDate"
+                        value={formState.endDate}
+                        placeholder={employee.demographics.addresses[0].endDate}
+                        onChange={handleEndDateChange} />
+                </div>
+                <div className="column">
+                    <p>Supervisors:</p>
+                    <label name="name">Supervisor Id:</label>
+                    <input type="text"
+                        className="form-input"
+                        name="supervisor_id"
+                        value={formState.supervisor_id}
+                        placeholder={employee.supervisors[0].supervisor_id}
+                        onChange={handleSupervisorIdChange} />
+                    <label name="name">Supervisor Start Date:</label>
+                    <input type="text"
+                        className="form-input"
+                        name="startDate"
+                        value={formState.startDate}
+                        placeholder={employee.supervisors[0].startDate}
+                        onChange={handleStartDateChange} />
+                    <label name="name">Supervisor End Date:</label>
+                    <input type="text"
+                        className="form-input"
+                        name="endDate"
+                        value={formState.endDate}
+                        placeholder={employee.supervisors[0].endDate}
+                        onChange={handleEndDateChange} />
+                </div>
+                <button className="addbtn" type="submit">Submit Changes</button>
+                </div>
+            </form>
         </div>
     );
 

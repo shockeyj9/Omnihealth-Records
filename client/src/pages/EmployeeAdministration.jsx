@@ -9,9 +9,6 @@ const Employees = () => {
     //Gets all Employees
     const { loading, data } = useQuery(QUERY_EMPLOYEES);
     const employeesData = data?.employees || [];
-    const [employees, setEmployees] = useState(employeesData)
-
-    //Sets up Update mutation function
     
 
 
