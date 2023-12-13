@@ -48,7 +48,7 @@ export const SearchBar = () => {
     return (
       <div className="search">
         <div className="searchInputs">
-            <input type="search" placeholder="Enter Client Name"  onChange={e => handleFilter(e.target.value)}/>
+            <input className="searchInputs" type="search" placeholder="Enter Client Name"  onChange={e => handleFilter(e.target.value)}/>
             {/* <button><FaSearch id="searchIcon"/></button> */}
         </div>
         <ul>
