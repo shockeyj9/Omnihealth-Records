@@ -13,13 +13,14 @@ import Error from './pages/Error';
 import Payers from './pages/Payers.jsx';
 
 // import PayerAdministration from "./pages/PayerAdministration"
-// import ActivtyAdministration from "./pages/ActivityAdministration"
+import ActivtyAdministration from "./pages/ActivityAdministration"
 import Programs from "./pages/Programs"
 import EmployeeAdministration from "./pages/EmployeeAdministration"
 import AddPayer from "./pages/AddPayer";
 import AddProgram from "./pages/AddProgram";
 import AddActivity from "./pages/AddActivity.jsx"
 import SinglePayer from './pages/SinglePayer.jsx';
+import SingleActivity from './pages/SingleActivity.jsx';
 import SingleProgram from './pages/SingleProgram.jsx';
 import SingleEmployee from "./pages/SingleEmployee.jsx";
 import AddEmployee from "./pages/AddEmployee.jsx"
@@ -60,10 +61,10 @@ const router = createBrowserRouter([
       //   path:'/PayerAdministration',
       //   element: <PayerAdministration />
       // },
-      // {
-      //   path:'/ActivityAdministration',
-      //   element: <ActivityAdministration />
-      // },
+       {
+         path:'/ActivityAdministration',
+         element: <ActivtyAdministration />
+       },
       {
         path:'/Programs',
         element: <Programs />
@@ -102,7 +103,10 @@ const router = createBrowserRouter([
       element: <SinglePayer />,
     },
     {
-      path: '/Program/:programId',
+      path: '/Activity/:activityId',
+      element: <SingleActivity />,
+    },
+    {  path: '/Program/:programId',
       element: <SingleProgram />,
     },
     ]

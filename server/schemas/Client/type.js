@@ -41,18 +41,19 @@ scalar DateTime
         endDate: DateTime
     }
 
-    type Client{
-        _id: ID!
-        demographics: Demographics
-        insurance: Insurance
-        programManagement: ProgramManagement   
-    }
-
     type ProgramManagement{
-        programManagement_id: ID!
+        program_id: ID!
         beginDate: DateTime!
         endDate: DateTime
     }
+
+    type Client{
+        _id: ID!
+        demographics: Demographics
+        insurance: [Insurance]
+        programManagement: [ProgramManagement]   
+    }
+
 
     input ContactInfoInput{
         phone: String
@@ -92,7 +93,7 @@ scalar DateTime
     }
 
     input ProgramManagementInput{
-        programManagement_id: ID
+        program_id: ID
         beginDate: DateTime
         endDate: DateTime
     }

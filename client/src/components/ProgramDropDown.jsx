@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useQuery } from "@apollo/client";
 import { QUERY_PROGRAMS } from "../graphql/queries/program";
 
-const ProgramDropdown = () => {
+const ProgramDropdown = ({specificProgram}) => {
 
     const { loading, data } = useQuery(QUERY_PROGRAMS);
     const programsData = data?.programs || [];
@@ -18,7 +18,7 @@ const ProgramDropdown = () => {
     return (
         <div className="dropdown-menu">
             <select value={program} onChange={changeProgram}>
-           <option>--program--</option>
+           <option>{specificProgram? specificProgram:'--program--'}</option>
            {programsData.map((data) => (
              <option key={data._id} value={data._id}>{data.name}</option>
            ))}
