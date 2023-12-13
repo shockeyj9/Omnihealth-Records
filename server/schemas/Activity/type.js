@@ -10,12 +10,7 @@ scalar DateTime
     type Document{
         name: String
     }
-    type PayerRef{
-        _id: ID
-    }
-    type ProgramRef{
-        _id: ID
-    }
+
 
     type Activity {
         _id: ID!
@@ -24,8 +19,8 @@ scalar DateTime
         document: [Document]
         beginDate: DateTime!
         endDate: DateTime
-        programs: [ProgramRef]
-        payers: [PayerRef]
+        programs: [Program]
+        payers: [Payer]
     }
     input ProcedureInput{
         code: String

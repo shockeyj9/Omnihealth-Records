@@ -4,7 +4,7 @@ const { Client, Payer } = require('../../models')
 module.exports = {
     Query: {
         clients: async () => {
-            return await Client.find({});
+            return await Client.find({})
         },
         client: async (parent, {_id}) => {
             return await Client.findById(_id);
