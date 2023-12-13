@@ -3,10 +3,18 @@ const { Activity } = require("../../models");
 module.exports = {
   Query: {
     activities: async () => {
-      return Activity.find({});
+      return Activity.find({}).populate(
+        [
+          {path: 'payers'}, 
+          {path: 'programs'}
+        ]);
     },
     activity: async (parent, { activityId }) => {
-      return Activity.findOne({ _id: activityId });
+      return Activity.findOne({ _id: activityId }).populate(
+        [
+          {path: 'payers'}, 
+          {path: 'programs'}
+        ]);
     },
   },
   Mutation: {

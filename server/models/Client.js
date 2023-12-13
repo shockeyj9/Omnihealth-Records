@@ -27,7 +27,7 @@ const clientSchema = new Schema({
         occupation: {
             type: String,
         },
-        contactInfo: [
+        contactInfo: 
             {
                 phone: {
                     type: String,
@@ -37,8 +37,7 @@ const clientSchema = new Schema({
                     type: String,
                     // value
                 }
-            }
-        ],
+            },
         addresses: [
             {
                 mailing: {

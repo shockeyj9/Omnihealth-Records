@@ -1,4 +1,5 @@
 const {User} = require('../../models')
+const {signToken,AuthenticationError} = require('../../utils/auth')
 
 module.exports = {
     Query: {
@@ -35,7 +36,23 @@ module.exports = {
             {_id}
         )=>{
             return User.findByIdAndDelete({_id})
-        }
+        },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+      
+            if (!user) {
+              throw AuthenticationError;
+            }
+      
+            const correctPw = await user.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw AuthenticationError;
+            }
+      
+            const token = signToken(user);
+            return { token, user };
+          },
     }
 
 }

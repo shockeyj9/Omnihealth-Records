@@ -11,6 +11,7 @@ scalar DateTime
         name: String
     }
 
+
     type Activity {
         _id: ID!
         name: String
@@ -18,7 +19,7 @@ scalar DateTime
         document: [Document]
         beginDate: DateTime!
         endDate: DateTime
-
+        programs: [Program]
         payers: [Payer]
     }
     input ProcedureInput{
