@@ -27,8 +27,9 @@ export default function UpdateActivityForm({ activity }) {
         setformState({
             ...formState, [name]: value
         })
-    };
-    const handleFormSubmit = (event) => {
+        console.log(formState)
+        };
+    const handleFormSubmit = (event)=>{
         event.preventDefault();
         updateActivity({
             variables: { id: activity._id, ...formState }
