@@ -6,7 +6,7 @@ import App from './App.jsx'
 import Login from './pages/Login';
 import Error from './pages/Error';
 // import FrontDesk from './pages/FrontDesk';
-// import Admission from './pages/Admission';
+import Admission from './pages/Admission';
 // import Schedule from './pages/Schedule';
 // import Client from './pages/Client';
 import Payers from './pages/Payers.jsx';
@@ -38,10 +38,10 @@ const router = createBrowserRouter([
       //    path: '/FrontDesk',
       //    element: <FrontDesk />
       // },
-      // {
-      //   path: '/Admission',
-      //   element: <Admission />
-      // },
+      {
+        path: '/Admission',
+        element: <Admission />
+      },
       // {
       //   path: '/Schedule',
       //   element: <Schedule />
