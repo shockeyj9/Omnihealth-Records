@@ -10,12 +10,7 @@ scalar DateTime
     type Document{
         name: String
     }
-    type PayerRef{
-        _id: ID
-    }
-    type ProgramRef{
-        _id: ID
-    }
+
 
     type Activity {
         _id: ID!
