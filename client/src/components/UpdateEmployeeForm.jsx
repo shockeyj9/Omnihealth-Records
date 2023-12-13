@@ -144,7 +144,7 @@ export default function UpdateEmployeeForm() {
         updateEmployee({
             variables: {id: employeeData._id, ...formState}
         })
-        window.location.replace('/Employees')
+        window.location.replace('/EmployeeAdnministration')
     }
 
     return (

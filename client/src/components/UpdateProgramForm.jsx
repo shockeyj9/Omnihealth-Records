@@ -18,7 +18,8 @@ export default function UpdateProgramForm() {
   {     id: programData._id,
        name: programData.name,
        beginDate: programData.beginDate,
-       endDate: programData.endDate,}
+       endDate: programData.endDate,
+    }
 
     );
 
@@ -53,12 +54,6 @@ export default function UpdateProgramForm() {
                 onChange={handleChange}/>
             <input type="text"
                 className="form-input"
-                name="electronic_id"
-                placeholder={programData.electronic_id}
-                value={formState.electronic_id}
-                onChange={handleChange} />
-            <input type="text"
-                className="form-input"
                 name="beginDate"
                 placeholder={programData.beginDate}
                 value={formState.beginDate}
@@ -67,6 +62,7 @@ export default function UpdateProgramForm() {
                 className="form-input"
                 name="endDate"
                 placeholder={programData.endDate}
+                value={formState.endDate}
                 onChange={handleChange} />
             <button className="addbtn" type="submit">Submit Changes</button>
         </form>

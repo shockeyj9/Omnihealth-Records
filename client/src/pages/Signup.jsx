@@ -1,96 +1,109 @@
-// import { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { useMutation } from '@apollo/client';
-// import { ADD_USER } from '../utils/mutations';
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../graphql/mutations/user';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
+const SignUp = (props) => {
 
-// const SignUp = (props) => {
-//   const [formState, setFormState] = useState({ email: '', password: '' });
-//   const [signup, { error, data }] = useMutation(ADD_USER);
+    const currentPage = useLocation().pathname;
 
-//   // update state based on form input changes
-//   const handleChange = (event) => {
-//     const { name, value } = event.target;
+    const [formState, setFormState] = useState({
+        username: '',
+        email: '',
+        password: '',
 
-//     setFormState({
-//       ...formState,
-//       [name]: value,
-//     });
-//   };
+    });
+    const [signUp, { error, data }] = useMutation(ADD_USER);
 
-//   // submit form
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault();
-//     console.log(formState);
-//     try {
-//       const { data } = await signup({
-//         variables: { ...formState },
-//       });
+    // update state based on form input changes
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
 
-//       Auth.login(data.login.token);
-//     } catch (e) {
-//       console.error(e);
-//     }
+    // submit form
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+        try {
+            const { data } = await signUp({
+                variables: { ...formState },
+            });
 
-//     // clear form values
-//     setFormState({
-//       email: '',
-//       password: '',
-//     });
-//   };
+        } catch (e) {
+            console.error(e);
+        }
 
-//   return (
-//     <main className="flex-row justify-center mb-4">
-//       <div className="col-12 col-lg-10">
-//         <div className="card">
-//           <h4 className="card-header bg-dark text-light p-2">Login</h4>
-//           <div className="card-body">
-//             {data ? (
-//               <p>
-//                 Success! You may now head{' '}
-//                 <Link to="/">back to the homepage.</Link>
-//               </p>
-//             ) : (
-//               <form onSubmit={handleFormSubmit}>
-//                 <input
-//                   className="form-input"
-//                   placeholder="Your email"
-//                   name="email"
-//                   type="email"
-//                   value={formState.email}
-//                   onChange={handleChange}
-//                 />
-//                 <input
-//                   className="form-input"
-//                   placeholder="******"
-//                   name="password"
-//                   type="password"
-//                   value={formState.password}
-//                   onChange={handleChange}
-//                 />
-//                 <button
-//                   className="btn btn-block btn-primary"
-//                   style={{ cursor: 'pointer' }}
-//                   type="submit"
-//                 >
-//                   Submit
-//                 </button>
-//               </form>
-//             )}
+        // clear form values
+        setFormState({
+            username: '',
+            email: '',
+            password: '',
+        });
+    };
 
-//             {error && (
-//               <div className="my-3 p-3 bg-danger text-white">
-//                 {error.message}
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     </main>
-//   );
-// };
+    return (
+        <main className="main flex-row justify-center mb-4">
+            <div className="col-12 col-lg-10">
+                <div className="card">
+                    <h2 className="card-header bg-dark text-light p-2">Signup</h2>
+                    <div className="card-body">
+                        {data ? (
+                            <p>
+                                Success! You may now head{' '}
+                                <Link to="/">back to the homepage.</Link>
+                            </p>
+                        ) : (
+                            <form onSubmit={handleFormSubmit}>
+                                <input
+                                    className="form-input"
+                                    placeholder="Your username"
+                                    name="username"
+                                    type="text"
+                                    value={formState.username}
+                                    onChange={handleChange}
+                                />
+                                <input
+                                    className="form-input"
+                                    placeholder="Your email"
+                                    name="email"
+                                    type="email"
+                                    value={formState.email}
+                                    onChange={handleChange}
+                                />
+                                <input
+                                    className="form-input"
+                                    placeholder="Your Password"
+                                    name="password"
+                                    type="password"
+                                    value={formState.password}
+                                    onChange={handleChange}
+                                />
+                                <button
+                                    className="addbtn btn-block btn-primary"
+                                    style={{ cursor: 'pointer' }}
+                                    type="submit"
+                                >
+                                    Submit
+                                </button>
+                            </form>
+                        )}
 
-// export default SignUp;
+                        {error && (
+                            <div className="my-3 p-3 bg-danger text-white">
+                                {error.message}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
+};
 
-  
+export default SignUp;
+

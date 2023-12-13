@@ -41,7 +41,7 @@ const AddEmployee = () => {
                 variables: { ...formState },
             });
 
-            window.location.href = 'http://localhost:3000/Employee';
+            window.location.href = 'http://localhost:3000/EmployeeAdministration';
         } catch (err) {
             console.error(err);
         }

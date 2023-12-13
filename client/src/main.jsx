@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom/dist'
 
 import App from './App.jsx'
 import Login from './pages/Login';
+import Signup from './pages/Signup.jsx';
 import Error from './pages/Error';
 // import FrontDesk from './pages/FrontDesk';
 // import Admission from './pages/Admission';
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Login />
+      },
+      {
+        path: '/Signup',
+        element: <Signup />
       },
       //  {
       //    path: '/FrontDesk',

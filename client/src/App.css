@@ -173,3 +173,8 @@ body{
   width: 80%;
  }
 
+ .alink {
+  list-style-type: none;
+  color:black;
+  text-decoration: none;
+ }
