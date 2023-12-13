@@ -26,8 +26,8 @@ const Activities = ()=>{
             )}
           </div>
           <div>
-          <button>
-                 <Link className="tablebtn addbtn"
+          <button className="tablebtn addbtn">
+                 <Link
                       style={{ textDecoration: "none", color: "black" }}
                       to={`/AddActivity`}
                   >

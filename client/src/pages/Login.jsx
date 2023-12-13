@@ -42,9 +42,10 @@ const Login = (props) => {
 
   return (
     <main className="main flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
+       <img className="logo" src='/logo/logo.png' />
+      <div className="img col-12 col-lg-10">
         <div className="card">
-          <h2 className="card-header bg-dark text-light p-2">Login</h2>
+          <h2 className="bg-dark text-light p-2">Login</h2>
           <div className="card-body">
             {data ? (
               <p>
@@ -86,6 +87,9 @@ const Login = (props) => {
             )}
           </div>
         </div>
+      </div>
+      <div>
+      <button className="addbtn" ><a className='alink' href="http://localhost:3000/Signup">Create an Account</a></button>
       </div>
     </main>
   );

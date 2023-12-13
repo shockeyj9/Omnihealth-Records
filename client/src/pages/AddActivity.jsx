@@ -57,22 +57,22 @@ const AddActivity = () => {
         })
     }
     const handleProcedureCodeChange = (event) => {
-        setFormState({
-            ...formState,
-            procedureCode : {...formState.procedureCode, code: event.target.value}
+        setFormState( (prevState) => {return {
+            ...prevState,
+            procedureCode : {...prevState.procedureCode, code: event.target.value}}
         })
     }
 
     const handleProcedureFeeChange = (event) => {
-        setFormState({
-            ...formState,
-            procedureCode : {...formState.procedureCode, fee: event.target.value}
+        setFormState( (prevState) => {return {
+            ...prevState,
+            procedureCode : {...prevState.procedureCode, fee: event.target.value}}
         })
     }
 
     console.log(formState)
     return (
-        <div>
+        <div className = "add-new">
             <h2 className="card-header">New Activity Entry</h2>
             <form onSubmit={handleFormSubmit}>
                 <input
@@ -123,12 +123,14 @@ const AddActivity = () => {
                     value={formState.document.name}
                     onChange={handleDocumentChange}
                 />
-                <div style = {{display: "flex"}}>
+                <div className="activitydropdowns">
                 <PayerDropdown />
+                </div>
+                <div className="activitydropdowns">
                 <ProgramDropdown />
                 </div>
                 <button
-                    className="btn btn-block btn-primary"
+                    className="addbtn btn-block btn-primary"
                     style={{ cursor: 'pointer' }}
                     type="submit"
                 >

@@ -54,6 +54,13 @@ export default function UpdatePayerForm() {
                 value={formState.name}
                 onChange={handleChange}/>
             <label name="beginDate">Begin Date:</label>
+             <input 
+                className="form-input"
+                type="text"
+                name="electronic_id"
+                placeholder={payerData.electronic_id}
+                value={formState.electronic_id}
+                onChange={handleChange}/>
             <input type="text"
                 className="form-input"
                 name="beginDate"
