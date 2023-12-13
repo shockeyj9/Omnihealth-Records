@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client'
+import { gql } from '@apollo/client'
 
 export const QUERY_EMPLOYEES = gql`
 query employees {
@@ -22,6 +22,11 @@ query employees {
           startDate
           endDate
         }
+      }
+      supervisors {
+        supervisor_id
+        startDate
+        endDate
       }
     }
   }

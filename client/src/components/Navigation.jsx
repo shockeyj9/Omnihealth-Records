@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-// import { SearchBar } from './SearchBar';
+import { SearchBar } from './SearchBar';
 import DropdownMenu from './DropDown';
 import { useState } from 'react';
 
@@ -21,9 +21,10 @@ function NavTabs() {
     return (
         <>
             <header className="navbar">
+            <img className="logonav" src='/logo/logo2.png' />
                 <h1>Omnihealth</h1>
                 <ul className="nav nav-tabs">
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link style={{ textDecoration: "none", color: "black" }}
                             to="/FrontDesk"
                             //   will be front desk
@@ -32,7 +33,7 @@ function NavTabs() {
                         >
                             Front Desk
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link style={{ textDecoration: "none", color: "black" }}
                             to="/Admission"
@@ -42,7 +43,7 @@ function NavTabs() {
                             Admission
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link style={{ textDecoration: "none", color: "black" }}
                             // to client appointment page
                             to="/Schedule"
@@ -51,7 +52,7 @@ function NavTabs() {
                         >
                             Schedule
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link style={{ textDecoration: "none", color: "black" }}
                             to="/Client"
@@ -70,7 +71,7 @@ function NavTabs() {
                         </div>
                     </li>
                     <li>
-                        {/* < SearchBar /> */}
+                        < SearchBar />
                     </li>
                     <li className="nav-item">
                         <Link style={{ textDecoration: "none", color: "black" }}
