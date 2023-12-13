@@ -4,7 +4,7 @@ body{
     width: 100%;
 }
 .navbar {
-    background-color: #83bad6;
+    background-color: #83d2d6;
     top: 0;
     width: 100%;
     display: flex;
@@ -19,8 +19,8 @@ body{
     font-size:3.5vw;
       background: var(--titles);
       border-radius:10px 10px 10px 10px;
-      padding: 0.5vw;
-      margin-left: 20px;
+      /* padding: 0vw;
+      margin-left: 0px; */
       float: left;
   }
 
@@ -58,6 +58,7 @@ body{
     text-align: center;
     padding-bottom: 15vh;
   }
+  
   .card-header{
     padding: 10px;
   }
@@ -104,7 +105,7 @@ body{
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #83bad6;
+    background-color: #83d2d6;
     color: black;
     justify-content: center;
     padding-left:2vw; 
@@ -180,4 +181,14 @@ body{
  }
 .updateEmployee{
   padding-bottom: 20px;
+}
+.logonav {
+  border-radius: 50%;
+  width: 75px;
+  margin: 20px 0px 20px 20px;
+}
+
+.logo {
+  width: 300px;
+  margin-top:25px;
 }

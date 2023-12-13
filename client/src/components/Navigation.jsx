@@ -21,6 +21,7 @@ function NavTabs() {
     return (
         <>
             <header className="navbar">
+            <img className="logonav" src='/logo/logo2.png' />
                 <h1>Omnihealth</h1>
                 <ul className="nav nav-tabs">
                     <li className="nav-item">

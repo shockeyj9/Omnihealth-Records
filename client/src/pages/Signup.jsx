@@ -48,9 +48,10 @@ const SignUp = (props) => {
 
     return (
         <main className="main flex-row justify-center mb-4">
+             <img className="logo" src='/logo/logo.png' />
             <div className="col-12 col-lg-10">
                 <div className="card">
-                    <h2 className="card-header bg-dark text-light p-2">Signup</h2>
+                    <h2 className="bg-dark text-light p-2">Signup</h2>
                     <div className="card-body">
                         {data ? (
                             <p>
