@@ -80,7 +80,7 @@ scalar DateTime
     input InsuranceInput{
         payerId: ID
         priority: String
-        subscriber: ID
+        subscriber: SubscriberInput
         beginDate: DateTime
         endDate: DateTime
     }
