@@ -59,7 +59,7 @@ export default function ProgramTable({ programs }) {
             <Link style={{ textDecoration: "none", color: "black" }}
               to="/AddProgram"
               className={currentPage === '/AddProgram' ? 'nav-link active' : 'nav-link'}>
-              Add
+              Add New Program
             </Link>
           </button>
     </div>

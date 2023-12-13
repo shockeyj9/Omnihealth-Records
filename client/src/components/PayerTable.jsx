@@ -62,7 +62,7 @@ export default function PayerTable({ payers }) {
             <Link style={{ textDecoration: "none", color: "black" }}
               to="/AddPayer"
               className={currentPage === '/AddPayer' ? 'nav-link active' : 'nav-link'}>
-              Add
+              Add New Payer
             </Link>
           </button>
     </div>
