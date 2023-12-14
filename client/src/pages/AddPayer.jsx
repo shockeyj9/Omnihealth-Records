@@ -22,7 +22,7 @@ const AddPayer = (payer) => {
                 variables: { ...formState },
             });
 
-            window.location.href = 'http://localhost:3000/Payers';
+            window.location.replace('/Payers')
         } catch (err) {
             console.error(err);
         }
