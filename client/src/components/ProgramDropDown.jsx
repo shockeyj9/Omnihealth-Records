@@ -9,14 +9,13 @@ const ProgramDropdown = ({specificProgram}) => {
     const programsData = data?.programs || [];
    
     const [program, setProgram] = useState()
-    // setprogram to programsData.name?
 
     const changeProgram = (event) => {
         setProgram(event.target.value);
 
     }
     return (
-        <div className="dropdown-menu">
+        <div className="dropdown-menu-activity">
             <select value={program} onChange={changeProgram}>
            <option>{specificProgram? specificProgram:'--program--'}</option>
            {programsData.map((data) => (
@@ -30,10 +29,3 @@ const ProgramDropdown = ({specificProgram}) => {
 export default ProgramDropdown;
 
 
-// other dropdown set up
-// {programsData
-//     ? programsData.map((data) => {
-//      return 
-//      <option key={data.id} value={data.id}>{data.name}</option>
-//     })
-//     : null }

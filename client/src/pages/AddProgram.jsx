@@ -14,14 +14,14 @@ const AddProgram = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+
 
         try {
             const { data } = await addProgram({
                 variables: { ...formState },
             });
 
-            window.location.href = 'http://localhost:3000/Programs';
+            window.location.replace('/Programs')
         } catch (err) {
             console.error(err);
         }
@@ -46,6 +46,7 @@ const AddProgram = () => {
         <div  className = "add-new">
             <h2 className="card-header">New Program Entry</h2>
             <form onSubmit={handleFormSubmit}>
+            <label name="beginDate">Begin Date:</label>
                 <input
                     className="form-input"
                     placeholder="Begin Date"
@@ -54,6 +55,7 @@ const AddProgram = () => {
                     value={formState.beginDate}
                     onChange={handleChange}
                 />
+                <label name="endDate">End Date:</label>
                 <input
                     className="form-input"
                     placeholder="End Date"
@@ -62,6 +64,7 @@ const AddProgram = () => {
                     value={formState.endDate}
                     onChange={handleChange}
                 />
+                <label name="name">Program Name:</label>
                 <input
                     className="form-input"
                     placeholder="Program Name"

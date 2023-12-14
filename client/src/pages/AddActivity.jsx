@@ -2,49 +2,48 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import PayerDropdown from '../components/PayerDropDown';
 import ProgramDropdown from '../components/ProgramDropDown';
-
 import { ADD_ACTIVITY } from '../graphql/mutations/activity'
-import mongoose from 'mongoose'
+
 const AddActivity = () => {
 
     const [formState, setFormState] = useState({
         beginDate: '',
         endDate: '',
         name: '',
-        procedureCode: {code: '', fee: ''},
-        document: {name: ''},
+        procedureCode: { code: '', fee: '' },
+        document: { name: '' },
     });
-    
+
     const [addActivity, { error, data }] = useMutation(ADD_ACTIVITY);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+
 
         try {
             const { data } = await addActivity({
                 variables: { ...formState },
             });
 
-            window.location.href = 'http://localhost:3000/Activity';
+            window.location.replace('/ActivityAdministration')
         } catch (err) {
             console.error(err);
         }
-         // clear form values
-    setFormState({
-        beginDate: '',
-        endDate: '',
-        name: '',
-        procedureCode: {code: '', fee: ''},
-        document: {name: ''},
-      });
+        // clear form values
+        setFormState({
+            beginDate: '',
+            endDate: '',
+            name: '',
+            procedureCode: { code: '', fee: '' },
+            document: { name: '' },
+        });
     };
 
     const handleChange = (event) => {
         const { name, value } = event.target;
 
         setFormState({
-            ...formState, 
+            ...formState,
             [name]: value,
         });
 
@@ -53,28 +52,33 @@ const AddActivity = () => {
     const handleDocumentChange = (event) => {
         setFormState({
             ...formState,
-            document : {name: event.target.value}
+            document: { name: event.target.value }
         })
     }
     const handleProcedureCodeChange = (event) => {
-        setFormState( (prevState) => {return {
-            ...prevState,
-            procedureCode : {...prevState.procedureCode, code: event.target.value}}
+        setFormState((prevState) => {
+            return {
+                ...prevState,
+                procedureCode: { ...prevState.procedureCode, code: event.target.value }
+            }
         })
     }
 
     const handleProcedureFeeChange = (event) => {
-        setFormState( (prevState) => {return {
-            ...prevState,
-            procedureCode : {...prevState.procedureCode, fee: event.target.value}}
+        setFormState((prevState) => {
+            return {
+                ...prevState,
+                procedureCode: { ...prevState.procedureCode, fee: event.target.value }
+            }
         })
     }
 
-    console.log(formState)
+
     return (
-        <div className = "add-new">
+        <div className="add-new">
             <h2 className="card-header">New Activity Entry</h2>
             <form onSubmit={handleFormSubmit}>
+                <label name="beginDate">Begin Date:</label>
                 <input
                     className="form-input"
                     placeholder="Begin Date"
@@ -83,6 +87,7 @@ const AddActivity = () => {
                     value={formState.beginDate}
                     onChange={handleChange}
                 />
+                <label name="endDate">End Date:</label>
                 <input
                     className="form-input"
                     placeholder="End Date"
@@ -91,6 +96,7 @@ const AddActivity = () => {
                     value={formState.endDate}
                     onChange={handleChange}
                 />
+                <label name="name">Activity Name:</label>
                 <input
                     className="form-input"
                     placeholder="Activity Name"
@@ -99,6 +105,7 @@ const AddActivity = () => {
                     value={formState.name}
                     onChange={handleChange}
                 />
+                <label name="procedureCode">Procedure Code:</label>
                 <input
                     className="form-input"
                     placeholder="Procedure Code"
@@ -107,6 +114,7 @@ const AddActivity = () => {
                     value={formState.procedureCode.code}
                     onChange={handleProcedureCodeChange}
                 />
+                <label name="procedureCode">Procedure Fee:</label>
                 <input
                     className="form-input"
                     placeholder="Procedure Fee"
@@ -115,7 +123,8 @@ const AddActivity = () => {
                     value={formState.procedureCode.fee}
                     onChange={handleProcedureFeeChange}
                 />
-                 <input
+                <label name="document">Document Name:</label>
+                <input
                     className="form-input"
                     placeholder="Service Document"
                     name="document"
@@ -123,11 +132,14 @@ const AddActivity = () => {
                     value={formState.document.name}
                     onChange={handleDocumentChange}
                 />
+                
                 <div className="activitydropdowns">
-                <PayerDropdown />
+                <label name="payers">Payer:</label>
+                    <PayerDropdown />
                 </div>
                 <div className="activitydropdowns">
-                <ProgramDropdown />
+                <label name="program">Program:</label>
+                    <ProgramDropdown />
                 </div>
                 <button
                     className="addbtn btn-block btn-primary"

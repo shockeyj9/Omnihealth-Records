@@ -19,7 +19,6 @@ const activitySchema = new Schema({
     ,
     document: [
         {
-            // may need default objedt id if it isn't created
             name: {
                 type:String
             }

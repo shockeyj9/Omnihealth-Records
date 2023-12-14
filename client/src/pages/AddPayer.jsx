@@ -15,39 +15,40 @@ const AddPayer = (payer) => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+
 
         try {
             const { data } = await addPayer({
                 variables: { ...formState },
             });
 
-            window.location.href = 'http://localhost:3000/Payers';
+            window.location.replace('/Payers')
         } catch (err) {
             console.error(err);
         }
-         // clear form values
-    setFormState({
-        beginDate: '',
-        endDate: '',
-        name: '',
-        electronicId: '',
-      });
+        // clear form values
+        setFormState({
+            beginDate: '',
+            endDate: '',
+            name: '',
+            electronicId: '',
+        });
     };
 
     const handleChange = (event) => {
         const { name, value } = event.target;
 
         setFormState({
-            ...formState, 
+            ...formState,
             [name]: value,
         });
 
     }
     return (
-        <div className = "add-new">
+        <div className="add-new">
             <h2 className="card-header">New Payer Plan Entry</h2>
             <form onSubmit={handleFormSubmit}>
+                <label name="name">Payer Name:</label>
                 <input
                     className="form-input"
                     placeholder="Begin Date"
@@ -56,6 +57,7 @@ const AddPayer = (payer) => {
                     value={formState.beginDate}
                     onChange={handleChange}
                 />
+                <label name="beginDate">Electronic Id:</label>
                 <input
                     className="form-input"
                     placeholder="End Date"
@@ -64,6 +66,7 @@ const AddPayer = (payer) => {
                     value={formState.endDate}
                     onChange={handleChange}
                 />
+                <label name="beginDate">Begin Date:</label>
                 <input
                     className="form-input"
                     placeholder="Payer Name"
@@ -72,6 +75,7 @@ const AddPayer = (payer) => {
                     value={formState.name}
                     onChange={handleChange}
                 />
+                <label name="endDate">End Date:</label>
                 <input
                     className="form-input"
                     placeholder="Electronic Payer ID"

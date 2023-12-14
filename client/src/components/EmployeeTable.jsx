@@ -17,7 +17,7 @@ export default function EmployeeTable({ employees }) {
       ]
     }
   );
-console.log(employees)
+
 
   return (
     <div className="tablecontainer">

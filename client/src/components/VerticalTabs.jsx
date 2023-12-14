@@ -21,7 +21,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography sx={{width:'90%', marginLeft:'30vw' ,display:'flex', flexDirection:'column', fontSize:'18px'}}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -137,7 +137,7 @@ const [addClient, { errors }] = useMutation(ADD_CLIENT);
             }
         }
     })
-    // window.location.replace('/ActivityAdministration')
+    
 
     setFormState({
         demographicsName: "",
@@ -173,7 +173,7 @@ const [addClient, { errors }] = useMutation(ADD_CLIENT);
   return (
     <form onSubmit={handleFormSubmit}>
     <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}
+      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', width:'100%', height:'100%', }}
     >
       <Tabs
         orientation="vertical"
@@ -181,15 +181,15 @@ const [addClient, { errors }] = useMutation(ADD_CLIENT);
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider' }}
+        sx={{ borderRight: 1, borderColor: 'divider', position:'fixed', height:'100%',}}
       >
         <Tab label="Demographics" {...a11yProps(0)} />
         <Tab label="Insurance" {...a11yProps(1)} />
         <Tab label="Program Management" {...a11yProps(2)} />
 
       </Tabs>
-      <TabPanel value={value} index={0}>
-        <label > Client Name: </label>
+      <TabPanel value={value} index={0} >
+        <label className="client-fill"> Client Name: </label>
         <input type="text"
         name='demographicsName'
         value={formState.demographicsName}

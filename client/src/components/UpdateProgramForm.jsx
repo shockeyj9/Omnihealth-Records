@@ -45,6 +45,7 @@ export default function UpdateProgramForm() {
         <div className = "add-new">
         <h2 className="card-header">Update Program Form</h2>
         <form onSubmit={handleFormSubmit}>
+        <label name="name">Program Date:</label>
             <input 
                 className="form-input"
                 type="text"
@@ -52,12 +53,14 @@ export default function UpdateProgramForm() {
                 placeholder={programData.name}
                 value={formState.name}
                 onChange={handleChange}/>
+                <label name="beginDate">Begin Date:</label>
             <input type="text"
                 className="form-input"
                 name="beginDate"
                 placeholder={programData.beginDate}
                 value={formState.beginDate}
                 onChange={handleChange} />
+                <label name="endDate">End Date:</label>
             <input type="text"
                 className="form-input"
                 name="endDate"

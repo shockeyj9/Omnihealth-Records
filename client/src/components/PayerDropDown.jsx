@@ -9,15 +9,14 @@ const PayerDropdown = ({specificPayer}) => {
     const payersData = data?.payers || [];
    
     const [payer, setPayer] = useState()
-    // setPayer to payersData.name?
+
 
     const changePayer = (event) => {
         setPayer(event.target.value);
-        console.log(event.target.value);
 
     }
     return (
-        <div className="dropdown-menu">
+        <div className="dropdown-menu-activity">
             <select value={payer} onChange={changePayer}>
             <option key  = "header">{specificPayer? specificPayer:'--payer--'}</option>
            {payersData.map((data) => (
@@ -31,10 +30,3 @@ const PayerDropdown = ({specificPayer}) => {
 export default PayerDropdown;
 
 
-// other dropdown set up
-// {payersData
-//     ? payersData.map((data) => {
-//      return 
-//      <option key={data.id} value={data.id}>{data.name}</option>
-//     })
-//     : null }

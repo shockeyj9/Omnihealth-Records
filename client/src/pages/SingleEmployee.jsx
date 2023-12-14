@@ -10,7 +10,6 @@ const SingleEmployee = () => {
     variables: { id: employeeId },
   });
   const employeeData = data?.employee || {};
-  console.log(loading,data)
 
 
   return (
