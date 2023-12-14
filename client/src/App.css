@@ -6,6 +6,9 @@ body{
     padding: 0;
     width: 100%;
 }
+.container {
+  margin-bottom: 20vh;
+}
 .navbar {
     background-color: #83d2d6;
     top: 0;
@@ -99,6 +102,7 @@ body{
   }
   .form-input {
     margin: 10px;
+    font-size: 18px;
   }
   
   .footer {
@@ -121,6 +125,9 @@ body{
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0;/* Important for vertical align on mobile phones */
+  }
+  .dropdown-menu-activity {
+    margin: 10px;
   }
 
   .dropdown-content {
@@ -153,10 +160,7 @@ body{
     flex-wrap: wrap;
     align-items: center;
   }
-  .activitydropdowns {
-    margin:10px 0;
-  }
-
+  
   .column {
     float: left;
     width: 25%;
@@ -202,6 +206,15 @@ body{
 
 .clientinfo {
   padding-top: 5vh;
+}
+
+.client-fill{
+  font-size: 18px;
+}
+
+.empHeader {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 

@@ -181,7 +181,8 @@ const AddEmployee = () => {
             <form onSubmit={handleFormSubmit}>
             <div className="row">
                 <div className="column"> 
-                <p>Demographics:</p>
+                <p className="empHeader">Demographics</p>
+                <label name="name">Employee Name:</label>
                     <input
                         className="form-input"
                         placeholder="name"
@@ -190,6 +191,7 @@ const AddEmployee = () => {
                         value={formState.demographics.name}
                         onChange={handleNameChange}
                     />
+                    <label name="name">Date of Birth:</label>
                     <input
                         className="form-input"
                         placeholder="date of birth"
@@ -198,6 +200,7 @@ const AddEmployee = () => {
                         value={formState.demographics.dateOfBirth}
                         onChange={handleBirthChange}
                     />
+                    <label name="name">Sex:</label>
                     <input
                         className="form-input"
                         placeholder="sex"
@@ -206,6 +209,7 @@ const AddEmployee = () => {
                         value={formState.demographics.sex}
                         onChange={handleSexChange}
                     />
+                    <label name="name">Gender:</label>
                     <input
                         className="form-input"
                         placeholder="gender"
@@ -214,6 +218,7 @@ const AddEmployee = () => {
                         value={formState.demographics.gender}
                         onChange={handleGenderChange}
                     />
+                    <label name="name">Race:</label>
                     <input
                         className="form-input"
                         placeholder="race"
@@ -222,6 +227,7 @@ const AddEmployee = () => {
                         value={formState.demographics.race}
                         onChange={handleRaceChange}
                     />
+                    <label name="name">Ethnicity:</label>
                     <input
                         className="form-input"
                         placeholder="ethnicity"
@@ -230,6 +236,7 @@ const AddEmployee = () => {
                         value={formState.demographics.ethnicity}
                         onChange={handleEthnicityChange}
                     />
+                     <label name="name">Role:</label>
                     <input
                         className="form-input"
                         placeholder="role"
@@ -240,7 +247,8 @@ const AddEmployee = () => {
                     />
                 </div>
                 <div className="column">
-                    <p>Contact Info:</p>
+                    <p className="empHeader">Contact Info</p>
+                    <label name="name">Phone:</label>
                     <input
                         className="form-input"
                         placeholder="phone"
@@ -249,6 +257,7 @@ const AddEmployee = () => {
                         value={formState.demographics.contactInfo.phone}
                         onChange={handlePhoneChange}
                     />
+                    <label name="name">Email:</label>
                     <input
                         className="form-input"
                         placeholder="email"
@@ -259,7 +268,8 @@ const AddEmployee = () => {
                     />
                 </div>
                 <div className="column">
-                    <p>Addresses:</p>
+                    <p className="empHeader">Addresses</p>
+                    <label name="name">Mailing:</label>
                     <input
                         className="form-input"
                         placeholder="mailing"
@@ -268,6 +278,7 @@ const AddEmployee = () => {
                         value={formState.demographics.addresses.mailing}
                         onChange={handleMailingChange}
                     />
+                    <label name="name">Physical:</label>
                     <input
                         className="form-input"
                         placeholder="physical"
@@ -276,6 +287,7 @@ const AddEmployee = () => {
                         value={formState.demographics.addresses.physical}
                         onChange={handlePhysicalChange}
                     />
+                     <label name="name">Start Date:</label>
                     <input
                         className="form-input"
                         placeholder="start date"
@@ -284,6 +296,7 @@ const AddEmployee = () => {
                         value={formState.demographics.addresses.startDate}
                         onChange={handleStartDateChange}
                     />
+                     <label name="name">End Date:</label>
                     <input
                         className="form-input"
                         placeholder="end date"
@@ -294,7 +307,8 @@ const AddEmployee = () => {
                     />
                 </div>
                 <div className="column">
-                    <p>Supervisors:</p>
+                    <p className="empHeader">Supervisors</p>
+                    <label name="name">Supervisor Id:</label>
                     <input
                         className="form-input"
                         placeholder="supervisor_id"
@@ -303,6 +317,7 @@ const AddEmployee = () => {
                         value={formState.supervisors.supervisor_id}
                         onChange={handleSupervisorIdChange}
                     />
+                    <label name="name">Supervisor Start Date:</label>
                     <input
                         className="form-input"
                         placeholder="start date"
@@ -311,6 +326,7 @@ const AddEmployee = () => {
                         value={formState.supervisors.startDate}
                         onChange={handleSupervisorStartDateChange}
                     />
+                     <label name="name">Supervisor End Date:</label>
                     <input
                         className="form-input"
                         placeholder="end date"

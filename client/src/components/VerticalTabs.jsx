@@ -21,7 +21,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography sx={{width:'90%', marginLeft:'30vw' ,display:'flex', flexDirection:'column'}}>{children}</Typography>
+          <Typography sx={{width:'90%', marginLeft:'30vw' ,display:'flex', flexDirection:'column', fontSize:'18px'}}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -189,7 +189,7 @@ const [addClient, { errors }] = useMutation(ADD_CLIENT);
 
       </Tabs>
       <TabPanel value={value} index={0} >
-        <label > Client Name: </label>
+        <label className="client-fill"> Client Name: </label>
         <input type="text"
         name='demographicsName'
         value={formState.demographicsName}
