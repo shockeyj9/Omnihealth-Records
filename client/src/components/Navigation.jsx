@@ -59,7 +59,7 @@ function NavTabs() {
                             // Check to see if the currentPage is `Contact`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
                             className={currentPage === '/Client' ? 'nav-link active' : 'nav-link'}
                         >
-                            Client
+                            Clients
                         </Link>
                     </li>
                     <li className="nav-item">
