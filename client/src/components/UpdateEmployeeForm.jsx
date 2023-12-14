@@ -34,16 +34,11 @@ export default function UpdateEmployeeForm({ employee }) {
         }
     });
 
-    // set update mutation
+
     const [updateEmployee, { errors }] = useMutation(UPDATE_EMPLOYEE);
 
 
-    // const handleChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setformState({
-    //         ...formState, [name]:value
-    //     })
-    //     }; 
+
     const handleNameChange = (event) => {
         setformState({
                 ...formState,

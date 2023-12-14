@@ -12,8 +12,6 @@ export default function ActivityTable({activities}) {
       'activities'
       ]}
     );
-  console.log(activities)
-
 
   
     return (

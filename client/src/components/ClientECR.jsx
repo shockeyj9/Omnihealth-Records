@@ -1,7 +1,7 @@
 
 
 export default function ClientECR({client}) {
-    console.log(client)
+
 return (
     <>
     <div className="demographics">

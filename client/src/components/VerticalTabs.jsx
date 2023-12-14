@@ -137,7 +137,7 @@ const [addClient, { errors }] = useMutation(ADD_CLIENT);
             }
         }
     })
-    // window.location.replace('/ActivityAdministration')
+    
 
     setFormState({
         demographicsName: "",

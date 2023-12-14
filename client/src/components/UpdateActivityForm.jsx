@@ -18,7 +18,7 @@ export default function UpdateActivityForm({ activity }) {
         programs: { _id: activity.programs[0]._id },
         payers: { _id: activity.payers[0]._id }
     })
-    //Set Update Mutation
+
     const [updateActivity, { errors }] = useMutation(UPDATE_ACTIVITY);
 
 
@@ -27,7 +27,7 @@ export default function UpdateActivityForm({ activity }) {
         setformState({
             ...formState, [name]: value
         })
-        console.log(formState)
+
         };
     const handleFormSubmit = (event)=>{
         event.preventDefault();

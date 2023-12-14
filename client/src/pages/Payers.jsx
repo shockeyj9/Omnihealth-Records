@@ -1,5 +1,5 @@
 import PayerTable from "../components/PayerTable";
-import { useState } from 'react';
+
 import { useQuery } from "@apollo/client";
 import { QUERY_PAYERS } from "../graphql/queries/payer";
 
@@ -9,9 +9,7 @@ const Payers = () => {
     //Gets all Payers
     const { loading, data } = useQuery(QUERY_PAYERS);
     const payersData = data?.payers || [];
-    const [payers, setPayers] = useState(payersData)
 
-    //Sets up Update mutation function
     
 
 

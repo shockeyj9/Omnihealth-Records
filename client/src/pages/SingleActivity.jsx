@@ -11,7 +11,7 @@ const SingleActivity = () => {
     variables: { activityId },
   });
   const activityData = data?.activity || {};
-  console.log(loading,data)
+
 
 
   return (
