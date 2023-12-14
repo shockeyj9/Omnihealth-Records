@@ -17,7 +17,7 @@ const PayerDropdown = ({specificPayer}) => {
 
     }
     return (
-        <div className="dropdown-menu">
+        <div className="dropdown-menu-activity">
             <select value={payer} onChange={changePayer}>
             <option key  = "header">{specificPayer? specificPayer:'--payer--'}</option>
            {payersData.map((data) => (

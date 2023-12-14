@@ -16,7 +16,7 @@ const ProgramDropdown = ({specificProgram}) => {
 
     }
     return (
-        <div className="dropdown-menu">
+        <div className="dropdown-menu-activity">
             <select value={program} onChange={changeProgram}>
            <option>{specificProgram? specificProgram:'--program--'}</option>
            {programsData.map((data) => (

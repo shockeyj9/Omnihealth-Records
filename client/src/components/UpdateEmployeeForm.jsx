@@ -173,7 +173,7 @@ export default function UpdateEmployeeForm({ employee }) {
             <form onSubmit={handleFormSubmit}>
                 <div className="row">
                     <div className="column">
-                        <p>Demographics:</p>
+                        <p className="empHeader">Demographics</p>
                         <label name="name">Employee Name:</label>
                         <input
                             className="form-input"
@@ -226,7 +226,7 @@ export default function UpdateEmployeeForm({ employee }) {
                             onChange={handleRoleChange} />
                     </div>
                     <div className="column">
-                    <p>Contact Info:</p>
+                    <p className="empHeader">Contact Info</p>
                     <label name="name">Phone:</label>
                     <input type="text"
                         className="form-input"
@@ -243,7 +243,7 @@ export default function UpdateEmployeeForm({ employee }) {
                         onChange={handleEmailChange} />
                 </div>
                 <div className="column">
-                    <p>Addresses:</p>
+                    <p className="empHeader">Addresses</p>
                     <label name="name">Mailing:</label>
                     <input type="text"
                         className="form-input"
@@ -274,7 +274,7 @@ export default function UpdateEmployeeForm({ employee }) {
                         onChange={handleSupervisorEndDateChange} />
                 </div>
                 <div className="column">
-                    <p>Supervisors:</p>
+                    <p className="empHeader">Supervisors</p>
                     <label name="name">Supervisor Id:</label>
                     <input type="text"
                         className="form-input"
