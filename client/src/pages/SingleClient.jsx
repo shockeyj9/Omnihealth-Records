@@ -5,7 +5,7 @@ import ClientECR from "../components/ClientECR";
 
 
 const SingleClient = () => {
-  //Get Activity
+
   const { clientId } = useParams();
   const { loading, error, data } = useQuery(QUERY_CLIENT, {
     variables: { id: clientId },

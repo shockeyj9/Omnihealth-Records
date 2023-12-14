@@ -34,7 +34,7 @@ const AddEmployee = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        // console.log(formState);
+
 
         try {
             const { data } = await addEmployee({
@@ -72,7 +72,6 @@ const AddEmployee = () => {
                 startDate: '',
                 endDate: '',
             }
-            // id has to be a valid mongodb object id, do we need to pull the programs and payers (dropdown?) 
         })
     };
 
@@ -174,7 +173,7 @@ const AddEmployee = () => {
         })
     }
 
-    console.log(formState)
+
     return (
         <div className="add-new">
             <h2 className="card-header">New Employee Entry</h2>

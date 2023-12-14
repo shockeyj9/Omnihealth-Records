@@ -6,9 +6,7 @@ import App from './App.jsx'
 import Login from './pages/Login';
 import Signup from './pages/Signup.jsx';
 import Error from './pages/Error';
-// import FrontDesk from './pages/FrontDesk';
 import Admission from './pages/Admission';
-// import Schedule from './pages/Schedule';
 import Client from './pages/Client';
 import Payers from './pages/Payers.jsx';
 import ActivtyAdministration from "./pages/ActivityAdministration"
@@ -23,7 +21,7 @@ import SingleProgram from './pages/SingleProgram.jsx';
 import SingleEmployee from "./pages/SingleEmployee.jsx";
 import SingleClient from "./pages/SingleClient.jsx";
 import AddEmployee from "./pages/AddEmployee.jsx"
-// drop downs
+
 
 
 const router = createBrowserRouter([
@@ -40,18 +38,10 @@ const router = createBrowserRouter([
         path: '/Signup',
         element: <Signup />
       },
-      //  {
-      //    path: '/FrontDesk',
-      //    element: <FrontDesk />
-      // },
       {
         path: '/Admission',
         element: <Admission />
       },
-      // {
-      //   path: '/Schedule',
-      //   element: <Schedule />
-      // },
       {
         path: '/Client',
         element: <Client />
@@ -84,7 +74,7 @@ const router = createBrowserRouter([
         path:'/AddEmployee',
         element: <AddEmployee />
       },
-    //  need administration sublinks/dropdowns
+
     {
       path:'/Payers',
       element: <Payers />

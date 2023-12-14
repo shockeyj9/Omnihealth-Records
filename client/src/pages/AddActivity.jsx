@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import PayerDropdown from '../components/PayerDropDown';
 import ProgramDropdown from '../components/ProgramDropDown';
-
 import { ADD_ACTIVITY } from '../graphql/mutations/activity'
-import mongoose from 'mongoose'
+
 const AddActivity = () => {
 
     const [formState, setFormState] = useState({
@@ -19,7 +18,7 @@ const AddActivity = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+
 
         try {
             const { data } = await addActivity({
@@ -74,7 +73,7 @@ const AddActivity = () => {
         })
     }
 
-    console.log(formState)
+
     return (
         <div className="add-new">
             <h2 className="card-header">New Activity Entry</h2>

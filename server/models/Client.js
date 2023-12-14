@@ -31,11 +31,11 @@ const clientSchema = new Schema({
             {
                 phone: {
                     type: String,
-                    // value
+
                 },
                 email: {
                     type: String,
-                    // value
+
                 }
             },
         addresses: [

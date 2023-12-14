@@ -14,7 +14,7 @@ export const SearchBar = () => {
     name: '',
     id: ''
   });
-  console.log(searched)
+
   const onChange = (event) =>{
     setSearched({
       name: event.target.value
