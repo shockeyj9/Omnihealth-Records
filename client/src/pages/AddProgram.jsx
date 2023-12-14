@@ -21,7 +21,7 @@ const AddProgram = () => {
                 variables: { ...formState },
             });
 
-            window.location.href = 'http://localhost:3000/Programs';
+            window.location.replace('/Programs')
         } catch (err) {
             console.error(err);
         }

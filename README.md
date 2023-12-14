@@ -1,18 +1,40 @@
 # OmniHealth Records
 
 ## User Story
-1. As a user, I want to use an application for storing and managing data related to my Behavioral Health practice 
-2  As a user, I want to be able to retrieve data related to my clients, employees, and the services my practice provides 
+1. As a user, I want to use an application for storing and managing data related to my Behavioral Health practice.
+
+2.  As a user, I want to be able to retrieve data related to my clients, employees, and the services my practice provides.
+
 ## Acceptance Criteria
 - GIVEN a webpage with electronic health records. 
-- WHEN I load up the page for the first time, I am greeted with a login page to sign into an account, or     sign-up.
+
+- WHEN I load up the page for the first time, I am greeted with a login page with email and password to sign into an account, or a button to sign-up.
+
+-WHEN I click on sign-up I am brought to form where I can add a username, email, and password
+
 -THEN I am routed to a page showing the sign in was successful
--WHEN I am signed in I am able to view the applications navigation bar.
+
+-WHEN I am signed in I am able to view and click the applications navigation bar
+
 -WHEN I select a navigation element
--THEN I am routed to the correct page.
+
+-THEN I am routed to the correct page with its corresponding information displayed
+
 -WHEN I select Edit
--THEN I am redirected to a form page that allows me to update the records. 
+
+-THEN I am redirected to a form page that allows me to update the records
+
 -WHEN the updates are submitted I am routed back to the main page and see the updates reflecting.
+
+-WHEN I select Add
+
+-THEN I am redirected to a form page that allows me to add to the records. 
+
+-WHEN the add is submitted I am routed back to the main page and see the adds reflecting
+
+-WHEN I select Delete
+
+-THEN the selected information is deleted
 
 ## Description
 
@@ -35,7 +57,7 @@ To use this app, insure you have access and have downloaded Node onto your local
 
 Upon opening the app for the first time, please check to make sure you have a package.json file in the file directory, on the lefthand side. If not, open your terminal using "Cntrl + `", or right click on the file directory and select "Open in intergrated terminal." Type into the terminal "npm init -y". 
 
-Still within the terminal, type "npm i" into the terminal. This will install and necessary packages to run our app. 
+Still within the terminal, type "npm i" into the terminal. This will install any necessary packages to run our app. 
 
 ## Usage
 
@@ -44,7 +66,7 @@ This application is used for storing data related to clients, employees, program
 ## License
 MIT License
 
-Copyright (c) 2023 Kalani Jones, Alexa Lester, Anna Pincus, Colton Laidig, and Jessie Shockey. 
+Copyright (c) 2023 Jessie Shockey and Anna Pincus. 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -25,7 +25,7 @@ const AddActivity = () => {
                 variables: { ...formState },
             });
 
-            window.location.href = 'http://localhost:3000/Activity';
+            window.location.replace('/ActivityAdministration')
         } catch (err) {
             console.error(err);
         }
