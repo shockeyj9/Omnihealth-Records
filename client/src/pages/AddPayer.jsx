@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_PAYER } from '../graphql/mutations/payer';
-
+import { Navigate } from 'react-router-dom';
+import Auth from '../utils/auth'
 
 const AddPayer = (payer) => {
-
+    if (!Auth.loggedIn()) {
+        return <Navigate to="/" />;
+      }
     const [formState, setFormState] = useState({
         beginDate: '',
         endDate: '',

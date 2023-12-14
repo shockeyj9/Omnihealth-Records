@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-
+import { Navigate } from 'react-router-dom';
+import Auth from '../utils/auth'
 import { ADD_EMPLOYEE } from '../graphql/mutations/employee'
 import mongoose from 'mongoose'
 const AddEmployee = () => {
-
+    if (!Auth.loggedIn()) {
+        return <Navigate to="/" />;
+      }
     const [formState, setFormState] = useState({
         demographics: {
             name: '',

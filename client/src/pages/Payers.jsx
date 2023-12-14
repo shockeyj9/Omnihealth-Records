@@ -2,10 +2,13 @@ import PayerTable from "../components/PayerTable";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_PAYERS } from "../graphql/queries/payer";
-
+import { Navigate } from 'react-router-dom';
+import Auth from '../utils/auth'
  
 const Payers = () => {
-
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/" />;
+  }
     //Gets all Payers
     const { loading, data } = useQuery(QUERY_PAYERS);
     const payersData = data?.payers || [];
