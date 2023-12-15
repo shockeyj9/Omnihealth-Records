@@ -58,6 +58,16 @@ function NavTabs() {
                 ):(
                     <ul className="nav nav-tabs">
                         <li className="nav-item">
+                            {currentPage === '/Signup'?(
+                                <Link style={{ textDecoration: "none", color: "black" }}
+                                to="/"
+                                className={currentPage === '/' ? 'nav-link active' : 'nav-link'
+                                }
+                            >
+                                Login
+                            </Link>
+                            ):(
+
                         <Link style={{ textDecoration: "none", color: "black" }}
                             to="/Signup"
                             className={currentPage === '/' ? 'nav-link active' : 'nav-link'
@@ -65,6 +75,7 @@ function NavTabs() {
                         >
                             Signup
                         </Link>
+                            )}
                     </li>
                     </ul>
                 )}
