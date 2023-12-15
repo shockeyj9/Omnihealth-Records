@@ -3,9 +3,13 @@ import { useMutation } from '@apollo/client';
 import PayerDropdown from '../components/PayerDropDown';
 import ProgramDropdown from '../components/ProgramDropDown';
 import { ADD_ACTIVITY } from '../graphql/mutations/activity'
+import { Navigate } from 'react-router-dom';
+import Auth from '../utils/auth'
 
 const AddActivity = () => {
-
+    if (!Auth.loggedIn()) {
+        return <Navigate to="/" />;
+      }
     const [formState, setFormState] = useState({
         beginDate: '',
         endDate: '',
