@@ -89,7 +89,6 @@ const Login = (props) => {
         </div>
       </div>
       <div>
-      <button className="addbtn" ><a className='alink' href="http://localhost:3000/Signup">Create an Account</a></button>
       </div>
     </main>
   );
