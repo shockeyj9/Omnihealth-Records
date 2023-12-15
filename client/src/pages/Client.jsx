@@ -2,10 +2,14 @@ import { useState } from 'react';
 import { useQuery } from "@apollo/client";
 import { QUERY_CLIENTS } from "../graphql/queries/client";
 import ClientsTable from "../components/ClientsTable";
-
+import { Navigate } from 'react-router-dom';
+import Auth from '../utils/auth'
 
 
 const Client = () => {
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/" />;
+  }
     //Gets all Clients
     const { loading, data } = useQuery(QUERY_CLIENTS);
     const clientsData = data?.clients || [];

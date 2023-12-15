@@ -2,10 +2,14 @@ import EmployeeTable from "../components/EmployeeTable";
 import { useState } from 'react';
 import { useQuery } from "@apollo/client";
 import { QUERY_EMPLOYEES } from "../graphql/queries/employee";
+import { Navigate } from 'react-router-dom';
+import Auth from '../utils/auth'
 
  
 const Employees = () => {
-
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/" />;
+  }
     //Gets all Employees
     const { loading, data } = useQuery(QUERY_EMPLOYEES);
     const employeesData = data?.employees || [];

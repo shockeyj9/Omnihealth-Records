@@ -2,10 +2,13 @@ import ProgramTable from "../components/ProgramTable";
 import { useState } from 'react';
 import { useQuery } from "@apollo/client";
 import { QUERY_PROGRAMS } from "../graphql/queries/program";
-
+import { Navigate } from 'react-router-dom';
+import Auth from '../utils/auth'
  
 const Programs = () => {
-
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/" />;
+  }
     //Gets all Programs
     const { loading, data } = useQuery(QUERY_PROGRAMS);
     const programsData = data?.programs || [];
