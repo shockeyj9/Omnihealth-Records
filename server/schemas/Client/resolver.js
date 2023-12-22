@@ -4,10 +4,16 @@ const { Client, Payer } = require('../../models')
 module.exports = {
     Query: {
         clients: async () => {
-            return await Client.find({})
+            return await Client.find({}).populate(
+                [{path: 'insurance.payerId'},
+                {path: 'programManagement.program_id'}]
+                )
         },
         client: async (parent, {_id}) => {
-            return await Client.findById(_id);
+            return await Client.findById(_id).populate(
+                [{path: 'insurance.payerId'},
+                {path: 'programManagement.program_id'}]
+                );
         },
     },
 
