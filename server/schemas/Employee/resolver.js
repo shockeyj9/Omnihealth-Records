@@ -3,10 +3,14 @@ const { Employee } = require("../../models");
 module.exports = {
     Query: {
         employees: async ()=>{
-            return await Employee.find({});
+            return await Employee.find({}).populate(
+                {path: 'supervisors.supervisor_id'}
+                );
         },
         employee: async (parent,{_id})=>{
-            return await Employee.findById(_id);
+            return await Employee.findById(_id).populate(
+                {path: 'supervisors.supervisor_id'}
+                );
         },
     },
     Mutation: {

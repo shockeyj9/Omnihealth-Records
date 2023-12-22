@@ -20,7 +20,7 @@ scalar DateTime
     }
 
     type Insurance {
-        payerId: ID
+        payerId: Payer
         priority: String
         subscriber: Subscriber
         beginDate: DateTime!
@@ -42,7 +42,7 @@ scalar DateTime
     }
 
     type ProgramManagement{
-        program_id: ID!
+        program_id: Program
         beginDate: DateTime!
         endDate: DateTime
     }

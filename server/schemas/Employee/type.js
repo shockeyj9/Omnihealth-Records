@@ -13,8 +13,8 @@ scalar DateTime
         endDate: DateTime
     }
     type Supervisors{
-        supervisor_id: ID!
-        startDate: DateTime!
+        supervisor_id: Employee
+        startDate: DateTime
         endDate: DateTime
     }
 
