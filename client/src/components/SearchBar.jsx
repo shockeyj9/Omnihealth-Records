@@ -1,4 +1,4 @@
-import {QUERY_CLIENTS} from '../graphql/queries/client'
+import {QUERY_SEARCHBAR} from '../graphql/queries/client'
 import {SearchOptions}  from "./SearchOptions";
 import {useQuery} from '@apollo/client';
 import React, { useState} from "react";
@@ -7,7 +7,7 @@ import React, { useState} from "react";
 
 
 export const SearchBar = () => {
-  const { loading, data } = useQuery(QUERY_CLIENTS);
+  const { loading, data } = useQuery(QUERY_SEARCHBAR);
   const clientData = data?.clients || [];
   
   const [searched, setSearched] = useState({
