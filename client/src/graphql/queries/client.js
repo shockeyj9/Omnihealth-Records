@@ -1,100 +1,110 @@
 import {gql} from '@apollo/client'
 
 export const QUERY_CLIENTS = gql`
-query clients {
-    clients {
-      _id
-      demographics {
+query Query {
+  clients {
+    _id
+    demographics {
+      addresses {
+        endDate
+        mailing
+        physical
+        startDate
+      }
+      contactInfo {
+        phone
+        email
+      }
+      dateOfBirth
+      ethnicity
+      gender
+      name
+      occupation
+      race
+      sex
+    }
+    insurance {
+      beginDate
+      endDate
+      payerId {
         name
-        dateOfBirth
-        sex
-        gender
-        race
-        ethnicity
-        occupation
-        contactInfo {
-          phone
-          email
-        }
-        addresses {
-          mailing
-          physical
-          startDate
-          endDate
-        }
       }
-      insurance {
-        payerId
-        priority
-        subscriber {
-          relationshipToPatient
-          name
-          dateOfBirth
-          addresses {
-            mailing
-            physical
-            startDate
-            endDate
-          }
-        }
-        beginDate
-        endDate
-      }
-      programManagement {
-        program_id
-        beginDate
-        endDate
+      priority
+    }
+    programManagement {
+      beginDate
+      endDate
+      program_id {
+        name
       }
     }
   }
+}
+
 `;
 
 export const QUERY_CLIENT = gql`
-query client($id: ID!) {
-    client(_id: $id) {
-      _id
-      demographics {
+query Query($id: ID!) {
+  client(_id: $id) {
+    _id
+    demographics {
+      addresses {
+        endDate
+        mailing
+        physical
+        startDate
+      }
+      contactInfo {
+        email
+        phone
+      }
+      dateOfBirth
+      ethnicity
+      gender
+      name
+      occupation
+      race
+      sex
+    }
+    insurance {
+      beginDate
+      endDate
+      payerId {
         name
-        dateOfBirth
-        sex
-        gender
-        race
-        ethnicity
-        occupation
-        contactInfo {
-          phone
-          email
-        }
+      }
+      priority
+      subscriber {
         addresses {
+          endDate
           mailing
           physical
           startDate
-          endDate
         }
+        dateOfBirth
+        name
+        relationshipToPatient
       }
-      insurance {
-        payerId
-        priority
-        subscriber {
-          relationshipToPatient
-          name
-          dateOfBirth
-          addresses {
-            mailing
-            physical
-            startDate
-            endDate
-          }
-        }
-        beginDate
-        endDate
-      }
-      programManagement {
-        program_id
-        beginDate
-        endDate
+    }
+    programManagement {
+      beginDate
+      endDate
+      program_id {
+        name
       }
     }
   }
+}
+
+`;
+
+export const QUERY_SEARCHBAR = gql`
+query searchBar {
+  clients {
+    _id
+    demographics {
+      name
+    }
+  }
+}
 `;
 
