@@ -28,7 +28,7 @@ export default function UpdateEmployeeForm({ employee }) {
             }
         },
         supervisors: {
-            supervisor_id: employee.supervisors[0].supervisor_id,
+            supervisor_id: employee.supervisors[0].supervisor_id._id,
             startDate: employee.supervisors[0].startDate,
             endDate: employee.supervisors[0].endDate,
         }
@@ -275,7 +275,7 @@ export default function UpdateEmployeeForm({ employee }) {
                         className="form-input"
                         name="supervisor_id"
                         value={formState.supervisor_id}
-                        placeholder={employee.supervisors[0].supervisor_id}
+                        placeholder={employee.supervisors[0].supervisor_id._id}
                         onChange={handleSupervisorIdChange} />
                     <label name="name">Supervisor Start Date:</label>
                     <input type="text"
