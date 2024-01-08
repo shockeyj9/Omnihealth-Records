@@ -14,8 +14,9 @@ const AddActivity = () => {
         beginDate: '',
         endDate: '',
         name: '',
-        procedureCode: { code: '', fee: '' },
-        document: { name: '' },
+        procedureCode: '', 
+        procedureFee: '' ,
+        documentName: '' ,
     });
 
     const [addActivity, { error, data }] = useMutation(ADD_ACTIVITY);
@@ -26,7 +27,15 @@ const AddActivity = () => {
 
         try {
             const { data } = await addActivity({
-                variables: { ...formState },
+                variables: {
+                    name: formState.name,
+                    procedureCode: {
+                        code: formState.procedureCode,
+                        fee: parseInt(formState.procedureFee,10)
+                    },
+                    beginDate: formState.beginDate,
+                    endDate: formState.endDate
+                },
             });
 
             window.location.replace('/ActivityAdministration')
@@ -38,44 +47,24 @@ const AddActivity = () => {
             beginDate: '',
             endDate: '',
             name: '',
-            procedureCode: { code: '', fee: '' },
-            document: { name: '' },
+            procedureCode: '', 
+            procedureFee: '' ,
+            documentName: '' ,
         });
     };
 
-    const handleChange = (event) => {
+    const handleFormChange = (event) => {
         const { name, value } = event.target;
-
         setFormState({
-            ...formState,
+            ...formState, 
             [name]: value,
         });
+      };
 
-    }
 
-    const handleDocumentChange = (event) => {
-        setFormState({
-            ...formState,
-            document: { name: event.target.value }
-        })
-    }
-    const handleProcedureCodeChange = (event) => {
-        setFormState((prevState) => {
-            return {
-                ...prevState,
-                procedureCode: { ...prevState.procedureCode, code: event.target.value }
-            }
-        })
-    }
 
-    const handleProcedureFeeChange = (event) => {
-        setFormState((prevState) => {
-            return {
-                ...prevState,
-                procedureCode: { ...prevState.procedureCode, fee: event.target.value }
-            }
-        })
-    }
+
+
 
 
     return (
@@ -89,7 +78,7 @@ const AddActivity = () => {
                     name="beginDate"
                     type="text"
                     value={formState.beginDate}
-                    onChange={handleChange}
+                    onChange={handleFormChange}
                 />
                 <label name="endDate">End Date:</label>
                 <input
@@ -98,7 +87,7 @@ const AddActivity = () => {
                     name="endDate"
                     type="text"
                     value={formState.endDate}
-                    onChange={handleChange}
+                    onChange={handleFormChange}
                 />
                 <label name="name">Activity Name:</label>
                 <input
@@ -107,7 +96,7 @@ const AddActivity = () => {
                     name="name"
                     type="text"
                     value={formState.name}
-                    onChange={handleChange}
+                    onChange={handleFormChange}
                 />
                 <label name="procedureCode">Procedure Code:</label>
                 <input
@@ -115,17 +104,17 @@ const AddActivity = () => {
                     placeholder="Procedure Code"
                     name="procedureCode"
                     type="text"
-                    value={formState.procedureCode.code}
-                    onChange={handleProcedureCodeChange}
+                    value={formState.procedureCode}
+                    onChange={handleFormChange}
                 />
                 <label name="procedureCode">Procedure Fee:</label>
                 <input
                     className="form-input"
                     placeholder="Procedure Fee"
-                    name="procedureCode"
-                    type="number"
-                    value={formState.procedureCode.fee}
-                    onChange={handleProcedureFeeChange}
+                    name="procedureFee"
+                    type="text"
+                    value={formState.procedureFee}
+                    onChange={handleFormChange}
                 />
                 <label name="document">Document Name:</label>
                 <input
@@ -133,8 +122,8 @@ const AddActivity = () => {
                     placeholder="Service Document"
                     name="document"
                     type="text"
-                    value={formState.document.name}
-                    onChange={handleDocumentChange}
+                    value={formState.documentName}
+                    onChange={handleFormChange}
                 />
                 
                 <div className="activitydropdowns">
